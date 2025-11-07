@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": 445.5,
+    "DificuldadeItem": 692.95,
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(O aluno apresenta uma habilidade estimada de 445.5, enquanto a dificuldade do item é de 692.95. A probabilidade de acerto foi de 20.03%, indicando que o aluno teve sorte em acertar este item, já que sua habilidade está abaixo da dificuldade exigida pelo item.)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap de 247.44 pontos demonstra que o aluno possui uma habilidade significativamente abaixo da dificuldade do item, indicando necessidade de melhorias substanciais nessa área.)",
+    "ProbabilidadeAcertoAcaso": "20.03%",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto por sorte foi de 20.03%, o que é igual à probabilidade real de acerto. Isso sugere que o aluno não teve sorte excessiva em acertar este item, mas sim que sua habilidade está alinhada com a chance aleatória.)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(Apesar da baixa probabilidade de acerto, o aluno acertou o item. Isso pode indicar que, ocasionalmente, o aluno consegue compreender conceitos mais complexos ou teve uma sorte significativa em questões específicas.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(Esta questão focou em habilidades relacionadas à compreensão de como as relações socioeconômicas e culturais de poder influenciam a transformação dos espaços geográficos. O aluno foi capaz de reconhecer a dinâmica dos movimentos sociais, mas ainda necessita melhorar nessa área para atingir um desempenho mais consistente.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(transformações geográficas, relações socioeconômicas e culturais de poder, dinâmica dos movimentos sociais)",
+    "EstrategiaGeralPersonalizada": "O aluno deve dedicar mais tempo a entender as causas e consequências das transformações geográficas em diferentes contextos históricos. Atividades práticas, como discussões em grupo sobre casos reais de movimentos sociais e estudo de mapas históricos, podem ajudar a fixar o conteúdo."
+  }
+}

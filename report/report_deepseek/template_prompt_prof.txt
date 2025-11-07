@@ -1,0 +1,82 @@
+Gere um Relatório de Qualidade da Questão usando os dados fornecidos.
+
+DADOS DA QUESTÃO
+Item: %%item%%
+Area de Conhecimento: %%area%%
+Dificuldade do Item: %%dificuldade%%
+Classificação do Item: %%classificacao%%
+Probabilidade de acerto ao acaso: %%prob_acaso%%
+Discriminação do Item: %%discriminacao%%
+Quantidade total de respostas: %%total_respostas%%
+Alunos com habilidade acima da dificuldade do item: %%acima%%
+Acertos de alunos com habilidade acima da dificuldade do item: %%acertos_acima%%
+Erros de alunos com habilidade acima da dificuldade do item: %%erros_acima%%
+Alunos com habilidade abaixo da dificuldade do item: %%abaixo%%
+Acertos de alunos com habilidade abaixo da dificuldade do item: %%acertos_abaixo%%
+Erros de alunos com habilidade abaixo da dificuldade do item: %%erros_abaixo%%
+Gabarito da questão: %%gabarito%%
+Marcações na letra A: %%a%%
+Marcações na letra B: %%b%%
+Marcações na letra C: %%c%%
+Marcações na letra D: %%d%%
+Marcações na letra E: %%e%%
+Respostas nulas: %%nulas%%
+
+
+Estrutura fixa do relatório:
+ATENÇÃO: SIGA A ESTRUTURA DO HTML A RIGOR, CRIANDO-O EXATAMENTE COMO ESTE MODELO APRESENTA. VOCÊ É LIVRE PARA MUDAR APENAS O TEXTO ENTRE PARÊNTESES (). NOS VALORES ENTRE %%, APENAS SUBSTITUA PELOS VALORES CORRESPONDENTES DOS DADOS DE ENTRADA. TAMBÉM É IMPORTANTE INCLUIR AS MARCAÇÕES "===INICIO_HTML===" E "===FIM_HTML===" PRESENTES NO MODELO.
+MODELO DE RESPOSTA HTML
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise de Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Item: {Item}</li>
+   <li>Area de Conhecimento: {Area de Conhecimento}</li>
+   <li>Item: {Item}</li>
+   <li>Dificuldade Estimada do Item: {Dificuldade do Item} (200 - 1.000). É considerada uma questão {Classificação do Item}</li>
+   <li>Probabilidade de chute: {Probabilidade de acerto ao acaso}%</li>
+   <il>Discriminação do Item: {Discriminação do Item}</li>
+   <il>Gabarito: {Gabarito da questão}</il>
+  </ul>
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Curva Característica do Item</h2>
+  <iframe src="../cci_prof.html" style="height:900px; width:1200px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <il>(Resumo geral do comportamento do item, coerência com a dificuldade e discriminação.)</il>
+    <il>(Destaque de padrões esperados ou anômalos (ex.: acertos inesperados abaixo da dificuldade ou erros inesperados acima dela).)</il>
+    <il>(Interpretação da distribuição das marcações entre as alternativas (ex.: houve muitas marcações em uma alternativa errada?))</il>
+  </ul>
+  <h2>Recomendações</h2>
+  <p>(Sugestão de manter, revisar ou descartar o item, com justificativa breve.)</p>
+</body>
+</html>
+===FIM_HTML===
+
+Regras para geração de relatório:
+* A dificuldade do item está na escala do ENEM (200-1000).
+* O item possui 5 alternativas de resposta.
+* A classificação da dificuldade da questão é regrada do seguinte modo:
+    - Muito Fácil - dificuldade <= 472.0
+    - Fácil - dificuldade <= 548.0
+    - Médio - dificuldade <= 651.0
+    - Difícil - dificuldade <= 727.0
+    - Muito difícil - dificuldade > 727.0
+* Mantenha exatamente essa estrutura e títulos.
+* Sempre inclua os valores originais fornecidos.
+* Use linguagem clara e objetiva, adequada para professores.
+* Se detectar anomalias, explique de forma simples.

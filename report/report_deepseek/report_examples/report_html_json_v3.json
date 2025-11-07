@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": "445.5",
+    "DificuldadeItem": "692.95",
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) é significativamente menor do que a dificuldade do item (692.95), resultando em uma probabilidade de acerto de 20.03%. Isso sugere que o aluno está abaixo da capacidade exigida pelo item)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap de 247.45 pontos na escala ENEM indica uma diferença substancial entre a habilidade do aluno e a dificuldade do item, sinalizando necessidade de melhorias)",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto por sorte (20.03%) é idêntica à probabilidade calculada, indicando que o aluno pode ter acertado aleatoriamente)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(Apesar do baixo desempenho relativo, o aluno acertou o item, possivelmente por sorte ou estratégias de eliminação)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(A questão exige compreensão de transformações geográficas influenciadas por fatores socioeconômicos e culturais, além de reconhecimento da dinâmica de movimentos sociais)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Movimentos sociais, dinâmica territorial)",
+    "EstrategiaGeralPersonalizada": "Realizar exercícios focados em interpretação de textos sobre movimentos sociais e sua relação com transformações geográficas."
+  }
+}

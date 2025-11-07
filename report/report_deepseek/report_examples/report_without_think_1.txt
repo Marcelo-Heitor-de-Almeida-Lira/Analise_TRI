@@ -1,0 +1,15 @@
+**Análise Detalhada de Desempenho**
+
+* Matrícula do Aluno: {210054649904}  
+* Seu nível estimado de habilidade foi {805.87}, e a dificuldade do item foi {709.62}, resultando em uma probabilidade de resposta correta de {77.01}%. (Explicação ampliada sobre a relação entre essas três variáveis e o que essas relações representam)  
+* Gap de habilidade: ({709.62} – {805.87}) (Interpretação breve do resultado)  
+* A probabilidade de acerto por chute foi {9.06}. (Explicação ampliada sobre a relação entre essa variável e a PROBABILITY_OF_CORRECT_ANSWER e o que esta relação significa)  
+* O aluno conseguiu responder corretamente ao item? {true} (Interpretação breve desse resultado à luz dos outros dados analisados)  
+* Competência exigida pelo item: {Use geometric knowledge to read and represent reality and act upon it.}  
+* Habilidade exigida pelo item: {Interpret the location and movement of people/objects in three-dimensional space and its representation in two-dimensional space.}  
+* (Resumo das disciplinas que essas competências e habilidades exigidas cobrem)  
+
+**Estratégias de Estudo Orientadas**
+
+* Tópicos prioritários (baseados no gap identificado)  
+* Estratégia geral personalizada

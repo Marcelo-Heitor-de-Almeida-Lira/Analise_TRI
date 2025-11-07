@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise de Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Item: 10</li>
+   <li>Area de Conhecimento: CN</li>
+   <li>Dificuldade Estimada do Item: 845.03 (200 - 1.000). É considerada uma questão Muito difícil</li>
+   <li>Probabilidade de chute: 13.96%</li>
+   <li>Discriminação do Item: 2.09</li>
+   <li>Gabarito: C</li>
+  </ul>
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Curva Característica do Item</h2>
+  <iframe src="../cci_prof.html" style="height:900px; width:1200px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>A questão apresenta uma boa discriminação (2.09), indicando que consegue separar alunos de habilidades diferentes.</li>
+    <li>A probabilidade de acerto ao acaso (13.96%) é baixa, o que é coerente com a classificação de "Muito difícil" (dificuldade > 727.0).</li>
+    <li>Os alunos com habilidade acima da dificuldade do item tiveram um número significativo de acertos (2701.85), embora haja também uma quantidade considerável de erros (1000.13), indicando que即使是高能力学生也不全对.</li>
+    <li>Os alunos com habilidade abaixo da dificuldade do item tiveram um desempenho pior, com mais erros (1100.0) do que acertos (2800.0), o que é esperado dada a alta dificuldade.</li>
+    <li>A distribuição de respostas mostra que a opção C foi a mais marcada (16.67%), seguida pelas opções A e B. Isso pode indicar que muitos alunos tentaram adivinhar, mas a opção correta (C) teve menos marcações do que o esperado.</li>
+  </ul>
+  <h2>Recomendações</h2>
+  <p>Considerar manter o item, pois sua discriminação é boa e ele consegue distinguir bem entre alunos de diferentes habilidades. No entanto, pode ser útil revisar as alternativas para garantir que nenhuma delas esteja promovendo confusão ou sutil semelhança com a resposta correta.</p>
+</body>
+</html>

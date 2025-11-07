@@ -1,0 +1,70 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 210055325099</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 445.5, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 20.03%</li>
+  </ul>
+  <h2><b>Item avaliado: 7</b></h2>
+  <ul>
+   <li>Gabarito: D</li>
+   <li>Dificuldade Estimada do Item: 692.95 (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: 20.03%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: 692.95 - 445.5 = 247.45</li>
+    <li>Análise da probabilidade de acerto: Análise da probabilidade de acerto:
+      <ul>
+        <li>A probabilidade de acerto (20.03%) foi influenciada pelo gap negativo entre a habilidade do aluno e a dificuldade do item.</li>
+        <li>As probabilidades de acerto e de chute são iguais (ambas 20.03%), indicando que o aluno teve uma chance baixa de acertar, independentemente da habilidade ou do chute.</li>
+        <li>Dado que a questão é considerada difícil (DIFICULDADE_ITEM = 692.95), é possível que o aluno tenha realizado um raciocínio lógico para chegar à resposta correta apesar de sua habilidade estar abaixo da dificuldade do item.</li>
+      </ul>
+    </li>
+    <li>Análise do Gap:</li>
+    <ul>
+      <li>O gap é negativo (-247.45), indicando que a habilidade estimada do aluno está significativamente abaixo da dificuldade do item.</li>
+      <li>Esse tamanho de gap dentro da escala ENEM sugere uma diferença substancial entre a habilidade do aluno e a dificuldade da questão.</li>
+      <li>Essa diferença sugere uma necessidade moderada de intervenção pedagógica para reforçar as competências relacionadas à matéria.</li>
+      <li>O esforço necessário para o aluno alcançar a dificuldade do item pode ser considerado significativo, exigindo estudo contínuo e focado em tópicos específicos.</li>
+    </ul>
+    <li>O aluno acertou ou errou a questão? Baseie-se na chave ACERTOU_ITEM</li>
+    <li>Conclusão:</li>
+    <ul>
+      <li>(Faça uma síntese crítica cruzando todas as variáveis (HABILIDADE_ESTIMADA_ALUNO, DIFICULDADE_ITEM, PROBABILIDADE_ACERTO, ACERTOU_ITEM).)</li>
+      <li>O desempenho do aluno foi atípico positivo, considerando que ele acertou a questão apesar de sua habilidade estar abaixo da dificuldade estimada. Isso pode indicar sorte, raciocínio lógico ou conhecimento prévio específico sobre o tópico.</li>
+      <li>(Relacione a análise com possíveis fatores externos (sorte, raciocínio lógico, conhecimento prévio).)</li>
+      <li>Embora tenha acertado, o baixo nível de habilidade em comparação à dificuldade da questão sugere que o aluno deve dedicar mais tempo para aprofundar seu conhecimento em tópicos relacionados.</li>
+      <li>(Finalize com uma breve orientação sobre os próximos passos do aluno, com foco em desenvolvimento.)</li>
+      <li>O aluno deve se concentrar em reforçar suas habilidades em entender as transformações dos espaços geográficos e sua relação com fatores socioeconômicos e culturais.</li>
+    </ul>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <li>Competência Exigida: Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.</li>
+    <li>Habilidade Exigida: Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.</li>
+    <li>Assuntos englobados: Os assuntos englobados incluem conceitos como transformações geográficas, relações socioeconômicas, dinâmica de movimentos sociais e a relação entre poder e território. Isso pode ser pedido em uma questão que pede a identificação de mudanças territoriais decorrentes de conflitos ou acordos políticos.</li>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: TópicosPrioritarios</li>
+    <li>Estratégias: EstrategiaGeralPersonalizada</li>
+  </ul>
+  <h1>GRÁFICO CCI</h1>
+  <iframe src="../cci.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h1>Distribuição de Habilidades</h1>
+  <iframe src="../histogram.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

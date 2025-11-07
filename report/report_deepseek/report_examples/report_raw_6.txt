@@ -1,0 +1,87 @@
+<think>
+Okay, I need to help the user by analyzing their data and providing a detailed feedback. They have given me specific instructions on how to structure both the JSON and HTML outputs. First, I'll look at the provided JSON data.
+
+The student's estimated ability is 445.5, and the item difficulty is 692.95. The gap here is significant—over 200 points. This suggests that the question was much harder than what the student is prepared for. The probability of answering correctly was 20.03%, but they actually got it right, which is interesting because it's lower than usual.
+
+I notice that the item difficulty is classified as "Difícil," so I should mention that in my analysis. Since the gap is negative (the student's ability is below the item's difficulty), this indicates a need for targeted study on specific topics. 
+
+Looking at the competencies and skills required, the main areas are understanding geographical transformations influenced by socio-economic and cultural relations of power. The specific skill needed is recognizing the dynamics of social movements and collective participation in historical-geographical transformations.
+
+For strategies, I should focus on strengthening concepts related to socio-economic influences and how they shape geographic spaces. Including practical activities like case studies or simulations would help reinforce these topics.
+
+In the HTML report, I need to structure it with clear sections: an introduction, analysis, competencies, and study strategies. I'll make sure to include all the necessary data points from the JSON, replacing placeholders where needed.
+
+I also have to ensure that both outputs follow the exact models provided, only changing the specified parts. The gap analysis should explain why a negative gap is concerning and what it means for the student's preparation. Comparing the probability of success with the random guess rate shows that the student didn't rely on luck but still has room for improvement.
+
+Finally, I'll propose specific study activities, like analyzing case studies or maps, to help the student grasp these concepts better. This should make the feedback both informative and actionable.
+</think>
+
+===INICIO_JSON===
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": 445.5,
+    "DificuldadeItem": 692.95,
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) é significativamente inferior à dificuldade do item (692.95), resultando em uma probabilidade de acerto relativamente baixa (20.03%).)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (-247.45) sugere que o aluno está lidando com um item de maior dificuldade em comparação à sua habilidade estimada, indicando necessidade de aprofundamento em tópicos relacionados à competência exigida.)",
+    "ProbabilidadeAcertoAcaso": 20.03,
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto aleatório (20.03%) é idêntica à probabilidade estimada, indicando que o aluno pode ter sorteado ou possuído um conhecimento superficial que não reflete aprofundamento na matéria.)",
+    "AcertouItem": true,
+    "Interpretacao_AcertoItem": "(Apesar da baixa probabilidade de acerto baseada na habilidade estimada, o aluno acertou o item, possivelmente por sorte ou por um conhecimento parcial que permitiu identificar a resposta correta.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem ": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(A questão exige compreensão de como fatores socioeconômicos e culturais influenciam mudanças geográficas, bem como a capacidade de analisar movimentos sociais e sua contribuição para transformações históricas.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Sociedade e território; Dinâmica de movimentos sociais; Participação coletiva em mudanças geográficas)",
+    "EstrategiaGeralPersonalizada": "Realizar atividades práticas envolvendo mapas e gráficos que mostrem as transformações geográficas decorrentes de movimentos sociais. Foco em analisar casos históricos de impacto socioeconômico em territórios."
+  }
+}
+===FIM_JSON===
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Relatório de Desempenho</title>
+</head>
+<body>
+    <h1>Introdução</h1>
+    <p>Bem-vindo ao relatório de desempenho do aluno. Este documento analisa o desempenho do aluno na prova, identifica gaps em seu conhecimento e sugere estratégias para melhoria.</p>
+
+    <h2>Análise Detalhada</h2>
+    <ul>
+        <li><strong>Habilidade estimada:</strong> 445.5</li>
+        <li><strong>Dificuldade do item:</strong> 692.95</li>
+        <li><strong>Gap habilidade x dificuldade:</strong> -247.45</li>
+        <li><strong>Probabilidade de acerto:</strong> 20.03%</li>
+        <li><strong>Acertou o item:</strong> Sim</li>
+    </ul>
+
+    <h2>Análise do Desempenho</h2>
+    <p>A habilidade estimada do aluno (445.5) é significativamente inferior à dificuldade do item (692.95), resultando em uma probabilidade de acerto relativamente baixa (20.03%). Apesar disso, o aluno acertou o item, possivelmente por sorte ou por um conhecimento parcial que permitiu identificar a resposta correta.</p>
+
+    <h2>Competências e Habilidades</h2>
+    <ul>
+        <li><strong>Competência exigida:</strong> Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.</li>
+        <li><strong>Habilidade exigida:</strong> Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.</li>
+        <li><strong>Assuntos englobados:</strong> Sociedade e território, Dinâmica de movimentos sociais, Participação coletiva em mudanças geográficas.</li>
+    </ul>
+
+    <h2>Estratégias de Estudo</h2>
+    <ul>
+        <li><strong>Tópicos Prioritários:</strong> Sociedade e território; Dinâmica de movimentos sociais; Participação coletiva em mudanças geográficas.</li>
+        <li><strong>Estratégias:</strong> Realizar atividades práticas envolvendo mapas e gráficos que mostrem as transformações geográficas decorrentes de movimentos sociais. Foco em analisar casos históricos de impacto socioeconômico em territórios.</li>
+    </ul>
+
+    <h1>GRÁFICO CCI</h1>
+    <iframe src="../cci.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+    <h1>Distribuição de Habilidades</h1>
+    <iframe src="../histogram.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

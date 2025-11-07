@@ -1,0 +1,40 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Item: 30</li>
+   <li>Área de Conhecimento: LC</li>
+   <li>Dificuldade Estimada do Item: 820.11 (200 - 1.000). É considerada uma questão Muito difícil.</li>
+   <li>Probabilidade de chute: 22.08%</li>
+   <li>Discriminação do Item: 2.58</li>
+   <li>Gabarito: A</li>
+  </ul>
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Curva Característica do Item</h2>
+  <iframe src="../cci_prof.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>A distribuição das respostas indicou que a opção A foi a mais marcada (24.61%), correspondente ao gabarito, seguida por C (28.99%). Isso sugere que a maioria dos alunos tentou responder corretamente, mas houve uma dispersão significativa nas respostas.</li>
+    <li>Os alunos com habilidade acima da dificuldade do item tiveram um desempenho ligeiramente superior, com 2801.84 acertos e 500.11 erros, enquanto os alunos com habilidade abaixo tiveram 2900.0 acertos e 600.0 erros. Esses resultados indicam que o item foi capaz de distinguir razoavelmente entre os grupos.</li>
+    <li>A probabilidade de acerto ao acaso (22.08%) é baixa, o que é coerente com a classificação de "Muito difícil" do item. No entanto, observou-se uma discrepância na performance dos alunos abaixo da dificuldade, que tiveram um número significativo de acertos (2900.0), apesar de serem predominantemente mais numerosos.</li>
+    <li>A discriminação do item (2.58) é considerada moderada/alta, indicando que o item foi capaz de separar os alunos com maior habilidade daqueles com menor habilidade.</li>
+  </ul>
+  <h2>Recomendações</h2>
+  <p>Dado que a questão apresenta uma boa capacidade discriminatória e probabilidade de acerto ao acaso baixa, recomenda-se manter o item no banco de questões. No entanto, é sugerido revisar as alternativas para garantir que não haja ambiguidade ou indício de que respostas incorretas possam ser interpretadas como corretas por alunos menos habilidosos.</p>
+</body>
+</html>
+===FIM_HTML===

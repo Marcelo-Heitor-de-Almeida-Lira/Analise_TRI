@@ -1,0 +1,103 @@
+<think>
+Okay, I need to help the user by analyzing their query. They provided a detailed scenario where they're acting as an expert in psychometrics and educational analysis. The task is to take specific TRI data in JSON format and generate two outputs: a JSON analysis following a strict model and an HTML report.
+
+First, I should understand the input data. It includes various parameters like matricula, item number, estimated student skill, probability of getting it right, difficulty of the item, whether the student got it right, and the required competencies and skills.
+
+The user emphasized that in JSON, I must strictly follow the model, replacing placeholders with actual data. In HTML, I need to structure it properly, using the same analysis but presenting it in a readable format with sections like title, subtitles, tables, and paragraphs. They also specified including certain frames at the end of the HTML report.
+
+I notice that both outputs have specific sections where only the JSON should be in JSON format, and the HTML should follow its own structure. For example, the JSON has "AnaliseDetalhadaDesempenho" and "EstrategiasEstudoDirecionadas", while the HTML includes a title, lists, tables, and iframes.
+
+I need to calculate the gap between HabilidadeEstimadaAluno and DificuldadeItem. Then interpret what this gap means for the student's performance. Also, I have to compare the probability of getting it right with the actual result and analyze whether the result was expected or not.
+
+Looking at the HTML model, I see that after the detailed analysis, there are sections about competencies and skills, which should be summarized based on the given data. Then, strategies for study improvement are suggested, focusing on specific topics and general personalized strategies.
+
+I must ensure that in both JSON and HTML, the placeholders like {MATRICULA} are replaced with actual values from the input data. Also, any text within parentheses is a place where I can add my own interpretation based on the analysis.
+
+For the gap calculation, since HabilidadeEstimadaAluno is 445.5 and DificuldadeItem is 692.95, subtracting gives a negative number, indicating that the student's skill level is below the item's difficulty. This suggests that the student might need more focused study on this area.
+
+The probability of acerto is 20.03%, which matches the actual result (ACERTOU_ITEM: true), meaning it wasn't a lucky guess but rather based on their skill level, even though it was low. Comparing with PROBABILIDADE_ACERTO_ACASO, both are the same, implying no luck involved.
+
+In terms of competencies and skills, the question requires understanding transformations in geographic spaces due to socio-economic and cultural power relations. The specific skill needed is recognizing social dynamics and collective participation in historical-geographic transformations.
+
+For strategies, I should focus on reinforcing these areas through practical activities like case studies or simulations, suggesting that the student engage more deeply with these topics to bridge the gap.
+
+Finally, I need to structure both outputs precisely as per the models provided, ensuring no deviations except where specified. The HTML should be a complete and valid document, including all necessary tags and frames at the end.
+</think>
+
+===INICIO_JSON===
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": "445.5",
+    "DificuldadeItem": "692.95",
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) está abaixo da dificuldade do item (692.95), resultando em uma probabilidade de acerto baixa (20.03%). Isso sugere que o aluno teve sorte ao acertar a questão, pois sua habilidade estimada não alcançaria regularmente itens tão difíceis.)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (692.95 - 445.5 = 247,45) indica que a habilidade do aluno está significativamente abaixo da dificuldade do item. Isso sugere necessidade de melhorias substanciais na compreensão dos conceitos relacionados.)",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto (20.03%) é igual à probabilidade de chute (20.03%). Isso sugere que o aluno teve sorte em acertar a questão, já que sua habilidade estimada não alcança regularmente itens tão difíceis.)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(O aluno acertou a questão, mas isso foi mais atribuído à sorte do que à compreensão profunda dos conceitos, já que a probabilidade de acerto foi baixa e similar à chance aleatória.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(A questão exige compreensão de como as relações socioeconômicas e culturais afetam os espaços geográficos, bem como a capacidade de analisar movimentos sociais e sua influência na transformação histórica.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Análise das relações entre movimentos sociais e transformações geográficas, dinâmica de poder em espaços urbanos)",
+    "EstrategiaGeralPersonalizada": "(Reforçar a compreensão de como as interações socioeconômicas e culturais influenciam a organização territorial, focando em estudos de caso e simulações práticas.)"
+  }
+}
+===FIM_JSON===
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análise de Desempenho</title>
+</head>
+<body>
+    <h1>Relatório de Análise</h1>
+    
+    <ul>
+        <li>Matrícula: 210055325099</li>
+        <li>Item: [Nº do Item]</li>
+        <li>Habilidade Estimada: 445.5</li>
+        <li>Dificuldade do Item: 692.95</li>
+        <li>Probabilidade de Acerto: 20.03%</li>
+        <li>Acertou: Sim</li>
+    </ul>
+
+    <h2>Análise Detalhada</h2>
+    
+    <p>A habilidade estimada do aluno (445.5) está significativamente abaixo da dificuldade do item (692.95), resultando em uma probabilidade de acerto baixa (20.03%). O fato de o aluno ter acertado a questão pode ser atribuído à sorte, já que sua habilidade estimada não é suficiente para regularmente alcançar itens tão difíceis.</p>
+
+    <h2>Gap de Habilidade</h2>
+    
+    <ul>
+        <li>Gap: 692.95 - 445.5 = 247,45</li>
+        <li>Interpretação: O gap negativo sugere que o aluno precisa melhorar significativamente sua compreensão dos conceitos relacionados.</li>
+    </ul>
+
+    <h2>Competências e Habilidades</h2>
+    
+    <ul>
+        <li>Competência Exigida: Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.</li>
+        <li>Habilidade Exigida: Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.</li>
+        <li>Assuntos englobados: Análise de como as interações socioeconômicas e culturais influenciam a organização territorial, estudos de caso sobre movimentos sociais e dinâmica de poder em espaços urbanos.</li>
+    </ul>
+
+    <h2>Estratégias de Estudo</h2>
+    
+    <ul>
+        <li>Tópicos Prioritários: Análise das relações entre movimentos sociais e transformações geográficas, dinâmica de poder em espaços urbanos.</li>
+        <li>Estratégias: Reforçar a compreensão de como as interações socioeconômicas e culturais influenciam a organização territorial, focando em estudos de caso e simulações práticas.</li>
+    </ul>
+
+    <h1>GRÁFICO CCI</h1>
+    <iframe src="../cci.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+    <h1>Distribuição de Habilidades</h1>
+    <iframe src="../histogram.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

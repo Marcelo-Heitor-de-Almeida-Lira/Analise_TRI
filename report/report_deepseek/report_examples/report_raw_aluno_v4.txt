@@ -1,0 +1,64 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 210054695880</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 626.31, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 15.65%</li>
+    <li>Aluno errou a questão</li>
+  </ul>
+  <h2><b>Item avaliado: 142</b></h2>
+  <ul>
+   <li>Gabarito: E</li>
+   <li>Dificuldade Estimada do Item: 790.43 (200 - 1.000). É considerada uma questão Muito dificil</li>
+   <li>Probabilidade de chute: 15.65%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: -164.12 (790.43 - 626.31)</li>
+    <ul>
+      <li>A probabilidade de acerto foi influenciada pelo fato de que a habilidade estimada do aluno (626.31) é significativamente menor do que a dificuldade do item (790.43), resultando em uma baixa probabilidade de acerto (15.65%).</li>
+      <li>A PROBABILIDADE_ACERTO (15.65%) é igual à PROBABILIDADE_ACERTO_ACASO (15.65%), indicando que o aluno teve a mesma chance de acertar aleatoriamente quanto de acertar por conhecimento. Isso sugere que a questão foi além do alcance do aluno.</li>
+      <li>Dado que o aluno errou a questão, é possível que ele tentou responder sem compreender adequadamente o conceito ou usou estratégias de eliminação inadequadas.</li>
+    </ul>
+    <li>Análise do Gap:</li>
+    <ul>
+      <li>O gap é negativo (-164.12), indicando que a habilidade do aluno está abaixo da dificuldade do item.</li>
+      <li>Um gap desse tamanho dentro da escala ENEM (200-1.000) sugere que o aluno enfrentou uma questão significativamente mais difícil do que sua capacidade atual.</li>
+      <li>Essa diferença sugere uma necessidade moderada de intervenção pedagógica, com foco em reforçar os conceitos básicos de geometria e espaço/forma.</li>
+      <li>O esforço necessário para o aluno alcançar a dificuldade do item é considerável, mas possível com dedicação contínua à prática e estudo direcionado.</li>
+    </ul>
+    <li>Conclusão:</li>
+    <ul>
+      <li>Síntese crítica: Com habilidade estimada de 626.31, probabilidade de acerto de 15.65% e erro na questão, o desempenho é atípico negativo para um aluno com essa habilidade.</li>
+      <li>O resultado é esperado dadas as estatísticas fornecidas, já que a baixa habilidade em relação à dificuldade do item tornou quase impossível acertar sem conhecimento prévio específico.</li>
+      <li>Os fatores externos mais prováveis incluem uma falta de revisão adequada sobre conceitos geométricos e/ou estratégias de resolução de problemas ineeficazes.</li>
+      <li>O aluno deve focar em reforçar suas habilidades básicas de geometria, particularmente em interpretar e representar a realidade de forma espacial. Recomenda-se a prática regular com questões do tipo, bem como a revisão de conceitos fundamentais.</li>
+    </ul>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <li>Competência Exigida: Utilizar o conhecimento geométrico para realizar a leitura e a representação da realidade e agir sobre ela.</li>
+    <li>Habilidade Exigida: Utilizar conhecimentos geométricos de espaço e forma na seleção de argumentos propostos como solução de problemas do cotidiano.</li>
+    <li>Assuntos englobados: A questão envolveu conceitos básicos de geometria, espaços e formas, possivelmente incluindo problemas de interpretação de figuras geométricas, cálculos de medidas ou relacionamento entre diferentes elementos geométricos. Um exemplo de como isso pode ser pedido seria uma questão que pede para identificar a figura correta que representa um determinado problema prático, como calcular a área de uma região ou interpretar um diagrama.</li>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: Geometria básica (defs, propriedades e aplicações), interpretação de figuras geométricas, resolução de problemas espaciais.</li>
+    <li>Estratégias: Prática regular com exercícios que envolvem leitura e representação de problemas geométricos; revisão de conceitos fundamentais; uso de ferramentas visuais (diagramas, figuras) para melhor compreensão de espaços e formas.</li>
+  </ul>
+  <h1>GRÁFICO CCI</h1>
+  <iframe src="../plots/cci_210054695880_PA_MT_7.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

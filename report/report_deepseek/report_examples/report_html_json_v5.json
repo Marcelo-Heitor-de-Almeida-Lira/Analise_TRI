@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": 445.5,
+    "DificuldadeItem": 692.95,
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) está abaixo da dificuldade do item (692.95), o que resulta em uma probabilidade de acerto relativamente baixa (20.03%). Isso sugere que o aluno tem mais chances de errar a questão, já que sua habilidade não alcança o nível exigido pelo item.)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (-247.45) indica que a habilidade do aluno está significativamente abaixo da dificuldade do item, o que torna a questão muito difícil para ele. Isso sugere necessidade de intervenção pedagógica moderada para reforçar os conceitos relacionados.)",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto coincide com a probabilidade de chute, indicando que o aluno não tinha um conhecimento sólido sobre o tema e pode ter acertado por sorte ou por algum raciocínio aleatório.)",
+    "AcertouItem": true,
+    "Interpretacao_AcertoItem": "(Apesar da baixa probabilidade de acerto, o aluno acertou a questão. Isso pode indicar que ele teve sorte ou que algum fator externo (como chutes informados) influenciou o resultado.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": " Reconhecer a dinâmica das relações sociais e sua influência na transformação de espaços geográficos, bem como compreender a participação coletiva em processos históricos-geográficos.",
+    "AssuntosEnglobados": "(Os assuntos englobados incluem transformações territoriais, relações socioeconômicas, dinâmica cultural e historicização de espaços geográficos. Por exemplo, como movimentos sociais ou mudanças econômicas afetam a paisagem.)"
+  },
+  "Estrategias": {
+    "TopicosPrioritarios": "Transformações territoriais, relações socioeconômicas, dinâmica cultural e historicização de espaços geográficos.",
+    "EstrategiaGeralPersonalizada": "Focar em atividades que envolvam mapeamento de mudanças históricas, estudo de casos concretos de transformações territoriais e discussões em grupo sobre fatores que influenciam a dinâmica espacial."
+  }
+}

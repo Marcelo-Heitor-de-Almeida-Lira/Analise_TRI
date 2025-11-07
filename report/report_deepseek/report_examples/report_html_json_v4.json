@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": "445.5",
+    "DificuldadeItem": "692.95",
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) está significativamente abaixo da dificuldade do item (692.95), resultando em uma probabilidade de acerto de apenas 20.03%. Isso sugere que o aluno enfrentou dificuldades sérias para compreender e responder corretamente à questão.)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (-247.45) indicam que a habilidade do aluno é significativamente menor do que a dificuldade do item, o que sugere necessidade de melhorias substanciais no entendimento dos conceitos relacionados.)",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto foi igual à probabilidade de chute (ambas 20.03%), o que sugere que o aluno pode ter acertado por sorte ou por um conhecimento superficial do tema, sem dominar os conceitos com profundidade.)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(Apesar da baixa probabilidade de acerto, o aluno acertou a questão. Isso pode indicar que ele possuía algum conhecimento esparso ou que teve sorte na resposta.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem ": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(As competências e habilidades exigidas nesta questão envolvem compreensão de transformações geográficas, dinâmica social e participação coletiva. Isso abrange temas como movimentos sociais, relações de poder, impactos socioeconômicos e mudanças territoriais.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Dinâmica dos movimentos sociais, transformações geográficas, relações socioeconômicas, participação coletiva)",
+    "EstrategiaGeralPersonalizada": ""
+  }
+}

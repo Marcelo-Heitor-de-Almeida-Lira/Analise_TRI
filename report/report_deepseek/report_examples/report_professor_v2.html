@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise de Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Dificuldade Estimada do Item: {692.95} (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: 20.03%</li>
+   <li>Discriminação do Item: 2.030</li>
+   <li>Gabarito: D</li>
+  </ul>
+
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>A questão apresenta uma boa discriminação (2.030), indicando que alunos com habilidade superior à dificuldade do item tiveram um desempenho ligeiramente melhor que aqueles com habilidade inferior.</li>
+    <li>Os alunos com habilidade acima da dificuldade do item apresentaram uma taxa de acerto (14.07%) menor do que o esperado, indicando que a questão pode estar mais difícil do que previsto ou há problemas na compreensão das alternativas.</li>
+    <li>Os alunos com habilidade abaixo da dificuldade do item tiveram uma taxa de acerto (25.21%) superior à taxa de erros (57.43%), o que é inesperado para uma questão classificada como difícil. Isso pode indicar problemas na validade da questão.</li>
+    <li>A distribuição das respostas mostra que a opção correta (D) foi a mais escolhida (39.21%), seguida pela opção C (19.11%). As outras alternativas tiveram menos de 20% cada, o que sugere que a questão teve uma boa discriminação, mas ainda há espaço para melhorias na clareza das alternativas.</li>
+  </ul>
+
+  <h2>Recomendações</h2>
+  <p>Considerar revisar o item devido à baixa taxa de acerto dos alunos com habilidade superior e à alta taxa de acerto dos alunos com habilidade inferior. Além disso, recomenda-se verificar se a dificuldade estimada (692.95) está alinhada com a classificação "Difícil" e analisar as alternativas para identificar possíveis fontes de confusão.</p>
+</body>
+</html>

@@ -1,0 +1,69 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 210055325099</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 473.18, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 11.26%</li>
+    <li>(O aluno errou a questão)</li>
+  </ul>
+  <h2><b>Item avaliado: 13</b></h2>
+  <ul>
+   <li>Gabarito: D</li>
+   <li>Dificuldade Estimada do Item: 755.97 (200 - 1.000). É considerada uma questão Muito dificil</li>
+   <li>Probabilidade de chute: 0.62%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: 755.97 - 473.18 = 282.79</li>
+    <li>Análise da probabilidade de acerto:
+      Análise da probabilidade de acerto: A baixa probabilidade de acerto (11.26%) indicam que o aluno estava bem abaixo da dificuldade do item (755.97). Comparando com a probabilidade de chute (0.62%), é possível notar que a chance real do aluno acertar foi significativamente maior que a chance aleatória, mas ainda muito baixa. Isso sugere que o aluno possuía algum conhecimento específico, embora limitado, para responder corretamente.
+      <ul>
+        <li>A PROBABILIDADE_ACERTO foi influenciada negativamente pela diferença significativa entre a HABILIDADE_ESTIMADA_ALUNO (473.18) e a DIFICULDADE_ITEM (755.97), resultando em uma baixa probabilidade de acerto estimada.</li>
+        <li>A PROBABILIDADE_ACERTO (11.26%) é maior que a PROBABILIDADE_ACERTO_ACASO (0.62%), indicando que o aluno tinha algum conhecimento, mas ainda estava muito abaixo do nível exigido pelo item.</li>
+        <li>Dado que o aluno errou a questão, é possível que tenha tentado deduzir ou eliminar opções, mas seu conhecimento foi insuficiente para alcançar a resposta correta.</li>
+      </ul>
+    </li>
+    <li>Análise do Gap:
+      <ul>
+        <li>O gap é positivo (282.79), indicando que a dificuldade do item estava significativamente acima da habilidade estimada do aluno.</li>
+        <li>Essa diferença substancial na escala ENEM (200-1000) sugere que o aluno está muito abaixo do nível exigido pelo item.</li>
+        <li>O gap sugere necessidade de intervenção pedagógica moderada, pois o aluno precisa melhorar significativamente seu conhecimento em assuntos relacionados à competência exigida.</li>
+        <li>Estimar que o esforço necessário será considerável, requerendo dedicação e estudo sistemático para alcançar o nível de dificuldade do item.</li>
+      </ul>
+    </li>
+    <li>Conclusão:
+      <ul>
+        <li>Sintaxe crítica: A combinação de baixa habilidade estimada (473.18), alta dificuldade do item (755.97) e probabilidade de acerto abaixo da média (11.26%) indicam que o desempenho foi atípico negativo, considerando que o aluno errou a questão.</li>
+        <li>O desempenho é considerado atípico negativo, uma vez que a probabilidade de acerto foi baixa e o aluno não acertou o item. Isso sugere que o aluno pode não ter se preparado adequadamente para o conteúdo exigido pelo item.</li>
+        <li>É possível que fatores como falta de conhecimento ou estratégias inadequadas tenham influenciado o desempenho, além da própria dificuldade intrínseca da questão.</li>
+        <li>O próximo passo deve ser focar no aprofundamento de temas relacionados à competência exigida, com ênfase em compreender melhor como textos literários se conectam ao contexto histórico e social de sua produção.</li>
+      </ul>
+    </li>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <li>Competência Exigida: Analisar, interpretar e aplicar recursos expressivos das linguagens, relacionando textos com seus contextos, mediante a natureza, função, organização, estrutura das manifestações, de acordo com as condições de produção e recepção.</li>
+    <li>Habilidade Exigida: Estabelecer relações entre o texto literário e o momento de sua produção, situando aspectos do contexto histórico, social e político.</li>
+    <li>Assuntos englobados: Os assuntos englobados incluem a relação entre textos literários e seu contexto de produção, com ênfase em aspectos históricos, sociais e políticos. Por exemplo, uma questão pode pedir para analisar como um texto reflete as condições da época em que foi escrito ou como elementos contextuais influenciaram sua estrutura e mensagem.</li>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: Contexto histórico, social e político das obras literárias; Análise de como elementos contextuais influenciam a produção textual.</li>
+    <li>Estratégias: Aprofundar o estudo de como textos literários se conectam ao contexto de sua produção; Praticar questões que envolvem interpretação e aplicação de recursos expressivos em diferentes contextos históricos e sociais.</li>
+  </ul>
+  <h1>GRÁFICO CCI</h1>
+  <iframe src="plots/cci_210055325099_PA_LC_13.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

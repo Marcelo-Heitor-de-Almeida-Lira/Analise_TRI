@@ -1,0 +1,39 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise de Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Dificuldade Estimada do Item: {692.95} (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: 20.03%</li>
+   <li>Discriminação do Item: 2.030</li>
+   <li>Gabarito: D</li>
+  </ul>
+
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>Ao contrário do esperado, os alunos com habilidade acima da dificuldade do item tiveram uma taxa de acerto (14.07%) significativamente menor que a probabilidade de chute (20.03%). Isso pode indicar que o item é mais difícil do que estima-se ou que esses alunos tiveram alguma dificuldade em compreendê-lo.</li>
+    <li>Os alunos com habilidade abaixo da dificuldade do item apresentaram uma taxa de acerto (25.21%) ligeiramente superior à probabilidade de chute, indicando que o item tem boa discriminação e é capaz de separar os alunos mais habilitados dos menos habilitados.</li>
+    <li>A distribuição das respostas mostra que a opção correta (D) recebeu a maior porcentagem de acertos (39.21%), seguida pela opção E (17.93%). A opção C teve a terceira maior porcentagem, com 19.11%, sugirindo que algumas alternativas podem conter instruções plausíveis que confundiram os alunos.</li>
+  </ul>
+
+  <h2>Recomendações</h2>
+  <p>Dado que a discriminação do item é forte e a probabilidade de chute está em linha com o esperado, recomenda-se manter o item. No entanto, recomenda-se uma revisão para avaliar se a dificuldade estimada reflete corretamente a performance dos alunos, especialmente aqueles com habilidade acima da média que tiveram um desempenho abaixo do esperado.</p>
+</body>
+</html>
+===FIM_HTML===

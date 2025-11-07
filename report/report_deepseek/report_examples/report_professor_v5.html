@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise de Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Item: 28</li>
+   <li>Área de Conhecimento: LC</li>
+   <li>Dificuldade Estimada do Item: 778.59 (200 - 1000). É considerada uma questão Muito difícil</li>
+   <li>Probabilidade de chute: 18.33%</li>
+   <li>Discriminação do Item: 1.78</li>
+   <li>Gabarito: E</li>
+  </ul>
+
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Curva Característica do Item</h2>
+  <iframe src="../cci_prof.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>A baixa taxa de acertos entre alunos com habilidade acima da dificuldade do item (1.8%) é inusual e merece investigação, possivelmente indicando problemas na questão.</li>
+    <li>Os erros elevados (72.87%) entre alunos com habilidade abaixo refletem a natureza difícil do item.</li>
+    <li>A maior distribuição de respostas na letra E (26.54%) é coerente com o gabarito, indicando que muitos alunos tentaram chutar.</li>
+  </ul>
+
+  <h2>Recomendações</h2>
+  <p>Mantenha o item por sua boa discriminação, mas revise-o para identificar possíveis problemas que estão prejudicando os alunos mais habilidosos. Recomenda-se monitorar a taxa de acertos em futuras aplicações.</p>
+</body>
+</html>

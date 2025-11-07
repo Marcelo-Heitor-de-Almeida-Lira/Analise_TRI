@@ -1,0 +1,93 @@
+<think>
+Okay, let me try to figure out how to approach this. The user has provided a detailed query about analyzing TRI data for educational assessment. They want both a JSON and an HTML report based on the given model.
+
+First, I need to understand what each part of their request entails. They mentioned that the JSON should strictly follow the model, with terms in braces replaced by the corresponding data. The HTML section is more flexible but must maintain structure. 
+
+Looking at the DADOS DE ENTRADA, I see it's a JSON object with several fields: student ID, item number, estimated ability, probability of getting the question right, and so on. My task is to analyze these using specific instructions.
+
+The analysis steps include calculating the gap between HABILIDADE_ESTIMADA_ALUNO and DIFICULDADE_ITEM. That's straightforward subtraction. Then interpreting what that gap means—whether it suggests the student needs improvement or not. 
+
+Next, I need to compare PROBABILIDADE_ACERTO with ACERTOU_ITEM. Since the student got it right (ACERTOU_ITEM is true), but their probability was only 20.03%, which is quite low. This might indicate luck rather than knowledge.
+
+Also, comparing PROBABILIDADE_ACERTO and PROBABILIDADE_ACERTO_ACASO shows they're equal, suggesting the student didn't know the answer and might have guessed correctly. 
+
+Looking at competencies and skills, the question requires understanding transformations in geographic spaces due to socio-economic and cultural power relations. The specific skill is recognizing social dynamics and collective participation in historical-geographic transformations.
+
+For the JSON part, I'll structure it as per the model, filling in each field with the appropriate data or interpretation. In the HTML report, I need to present this analysis in a structured way with headings, sections for competencies, strategies, etc., using the provided model but substituting where necessary.
+
+I also notice that certain parts allow freedom in text between parentheses, so I'll expand on those points with detailed explanations. For example, in "Explicacao_Habilidade_Dificuldade_Probabilidade", I need to explain how these variables relate and what they indicate about the student's performance.
+
+In the strategies section, based on the identified gap, I should suggest topics for focused study and personalized learning strategies. This might include activities like mapping historical changes or group discussions to enhance understanding.
+
+I must ensure that both JSON and HTML outputs are correctly formatted with the specified start and end markers. Also, maintaining the structure strictly as per the models provided is crucial to meet the user's requirements.
+
+Finally, I'll make sure that all numerical values are accurately represented, using the correct scale (ENEM 200-1000) without converting them from TRI if not necessary. The conclusion should tie everything together, providing a clear next step for the student's improvement.
+</think>
+
+===INICIO_JSON===
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": 445.5,
+    "DificuldadeItem": 692.95,
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) está abaixo da dificuldade do item (692.95), o que resulta em uma probabilidade de acerto relativamente baixa (20.03%). Isso sugere que o aluno tem mais chances de errar a questão, já que sua habilidade não alcança o nível exigido pelo item.)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (-247.45) indica que a habilidade do aluno está significativamente abaixo da dificuldade do item, o que torna a questão muito difícil para ele. Isso sugere necessidade de intervenção pedagógica moderada para reforçar os conceitos relacionados.)",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto coincide com a probabilidade de chute, indicando que o aluno não tinha um conhecimento sólido sobre o tema e pode ter acertado por sorte ou por algum raciocínio aleatório.)",
+    "AcertouItem": true,
+    "Interpretacao_AcertoItem": "(Apesar da baixa probabilidade de acerto, o aluno acertou a questão. Isso pode indicar que ele teve sorte ou que algum fator externo (como chutes informados) influenciou o resultado.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": " Reconhecer a dinâmica das relações sociais e sua influência na transformação de espaços geográficos, bem como compreender a participação coletiva em processos históricos-geográficos.",
+    "AssuntosEnglobados": "(Os assuntos englobados incluem transformações territoriais, relações socioeconômicas, dinâmica cultural e historicização de espaços geográficos. Por exemplo, como movimentos sociais ou mudanças econômicas afetam a paisagem.)"
+  },
+  "Estrategias": {
+    "TopicosPrioritarios": "Transformações territoriais, relações socioeconômicas, dinâmica cultural e historicização de espaços geográficos.",
+    "EstrategiaGeralPersonalizada": "Focar em atividades que envolvam mapeamento de mudanças históricas, estudo de casos concretos de transformações territoriais e discussões em grupo sobre fatores que influenciam a dinâmica espacial."
+  }
+}
+===FIM_JSON===
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Análise TRI</title>
+</head>
+<body>
+    <h1>Relatório de Análise</h1>
+    
+    <h2>Dados Básicos</h2>
+    <ul>
+        <li>Matrícula: 210055325099</li>
+        <li>Item: [Nº do Item]</li>
+        <li>Habilidade Estimada: 445.5</li>
+        <li>Dificuldade do Item: 692.95</li>
+        <li>Probabilidade de Acerto: 20.03%</li>
+    </ul>
+
+    <h2>Análise Detalhada</h2>
+    <p>A habilidade estimada do aluno (445.5) está significativamente abaixo da dificuldade do item (692.95), resultando em uma probabilidade de acerto baixa (20.03%). O gap negativo (-247.45) indica que a questão é muito difícil para o aluno, sugerindo necessidade de intervenção pedagógica moderada.</p>
+
+    <h2>Competências e Habilidades</h2>
+    <ul>
+        <li>Competência Exigida: Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.</li>
+        <li>Habilidade Exigida: Reconhecer a dinâmica das relações sociais e sua influência na transformação de espaços geográficos, bem como compreender a participação coletiva em processos históricos-geográficos.</li>
+        <li>Assuntos Englobados: Transformações territoriais, relações socioeconômicas, dinâmica cultural e historicização de espaços geográficos.</li>
+    </ul>
+
+    <h2>Estratégias de Estudo</h2>
+    <ul>
+        <li>Tópicos Prioritários: Transformações territoriais, relações socioeconômicas, dinâmica cultural e historicização de espaços geográficos.</li>
+        <li>Estratégias: Focar em atividades que envolvam mapeamento de mudanças históricas, estudo de casos concretos de transformações territoriais e discussões em grupo sobre fatores que influenciam a dinâmica espacial.</li>
+    </ul>
+
+    <h1>Gráfico CCI</h1>
+    <iframe src="../cci.html" style="height:600px; width:900px;"></iframe>
+
+    <h1>Distribuição de Habilidades</h1>
+    <iframe src="../histogram.html" style="height:600px; width:900px;"></iframe>
+</body>
+</html>
+===FIM_HTML===

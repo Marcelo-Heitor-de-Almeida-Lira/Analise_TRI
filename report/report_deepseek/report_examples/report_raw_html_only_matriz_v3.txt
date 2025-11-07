@@ -1,0 +1,49 @@
+```json
+{
+  "MATRICULA": "210055325099",
+  "ITEM": 7,
+  "HABILIDADE_ESTIMADA_ALUNO": 445.5,
+  "PROBABILIDADE_ACERTO": 20.03,
+  "GABARITO": "D",
+  "DIFICULDADE_ITEM": 692.95,
+  "CLASSIFICACAO_DIFICULDADE_ITEM": "Difícil",
+  "PROBABILIDADE_ACERTO_ACASO": 20.03,
+  "ACERTOU_ITEM": true,
+  "COMPETENCIA_EXIGIDA_ITEM": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+  "HABILIDADE_EXIGIDA_ITEM ": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica."
+}
+```
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 210055325099</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 445.5, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 20.03%</li>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <il>Competência Exigida: Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.</il>
+    <il>Habilidade Exigida: Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.</il>
+    <il>Assuntos englobados: O item aborda a relação entre movimentos sociais, espaços geográficos e fatores socioeconômicos. Isso pode ser pedido em uma questão que envolve analisar como transformações históricas afetam dinâmicas territoriais e como essas mudanças são influenciadas por fatores culturais e econômicos.</il>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: História do movimento social, impacto de transformações geográficas, fatores socioeconômicos e culturais na dinâmica territorial.</li>
+    <li>Estratégias: Revisão de conceitos básicos de geografia humana, prática com questões que envolvem análise de relações entre movimentos sociais e espaços geográficos, uso de mapas e diagramas para visualizar transformações territoriais.</li>
+  </ul>
+</body>
+</html>
+===FIM_HTML===
+```

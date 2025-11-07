@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": 445.5,
+    "DificuldadeItem": 692.95,
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) é significativamente inferior à dificuldade do item (692.95), resultando em uma probabilidade de acerto relativamente baixa (20.03%).)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (-247.45) sugere que o aluno está lidando com um item de maior dificuldade em comparação à sua habilidade estimada, indicando necessidade de aprofundamento em tópicos relacionados à competência exigida.)",
+    "ProbabilidadeAcertoAcaso": 20.03,
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto aleatório (20.03%) é idêntica à probabilidade estimada, indicando que o aluno pode ter sorteado ou possuído um conhecimento superficial que não reflete aprofundamento na matéria.)",
+    "AcertouItem": true,
+    "Interpretacao_AcertoItem": "(Apesar da baixa probabilidade de acerto baseada na habilidade estimada, o aluno acertou o item, possivelmente por sorte ou por um conhecimento parcial que permitiu identificar a resposta correta.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem ": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(A questão exige compreensão de como fatores socioeconômicos e culturais influenciam mudanças geográficas, bem como a capacidade de analisar movimentos sociais e sua contribuição para transformações históricas.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Sociedade e território; Dinâmica de movimentos sociais; Participação coletiva em mudanças geográficas)",
+    "EstrategiaGeralPersonalizada": "Realizar atividades práticas envolvendo mapas e gráficos que mostrem as transformações geográficas decorrentes de movimentos sociais. Foco em analisar casos históricos de impacto socioeconômico em territórios."
+  }
+}

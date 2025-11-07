@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": "445.5",
+    "DificuldadeItem": "692.95",
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "A probabilidade de acerto de 20,03% sugere que o aluno teve sorte em acertar o item, já que a probabilidade de acerto por acaso também é de 20,03%. Isso indica que o aluno pode não dominar plenamente o conteúdo exigido pelo item.",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "O gap de 247,45 pontos indicativa que o aluno está abaixo do nível de dificuldade do item, possivelmente sem compreender a matéria adequadamente.",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "A probabilidade de acerto por acaso é igual à probabilidade de acerto real, indicando que o aluno pode ter respondido aleatoriamente ou possuir um conhecimento superficial do conteúdo.",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "Apesar das baixas probabilidades, o aluno acertou o item, o que pode indicar sorte ou que ele possui algum entendimento básico sobre o tema.",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "Este item avalia a compreensão das transformações geográficas influenciadas por fatores socioeconômicos e culturais, bem como a capacidade de reconhecer movimentos sociais e sua participação na mudança da realidade."
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "Movimentos sociais, transformações geográficas, relações socioeconômicas e culturais de poder.",
+    "EstrategiaGeralPersonalizada": "Realizar atividades práticas como discussões em grupo sobre movimentos sociais e a criação de mapas interativos que mostrem as mudanças geográficas decorrentes de tais movimentos."
+  }
+}

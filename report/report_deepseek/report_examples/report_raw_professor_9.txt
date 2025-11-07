@@ -1,0 +1,46 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise de Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Item: 29</li>
+   <li>Area de Conhecimento: MT</li>
+   <li>Dificuldade Estimada do Item: 596.49 (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: 26.43%</li>
+   <li>Discriminação do Item: 1.51</li>
+   <li>Gabarito: B</li>
+  </ul>
+
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Curva Característica do Item</h2>
+  <iframe src="../cci_prof.html" style="height:900px; width:1200px; display:block; margin: 0 auto; border:none;"></iframe>
+
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>A questão apresenta uma dificuldade moderada, classificada como "Difícil", com um grau de discriminação moderado (1.51). Isso sugere que o item consegue distinguir entre alunos com habilidades acima e abaixo da dificuldade do item.</li>
+    <li>A probabilidade de acerto ao acaso é de 26.43%, o que é esperável para um item com cinco alternativas.</li>
+    <li>Os alunos com habilidade acima da dificuldade tiveram uma taxa de acerto ligeiramente superior àquela dos alunos com habilidade abaixo, embora a diferença seja pequena (386512.95 vs 386400.0). Isso pode indicar que o item precisa ser revisado para melhorar sua capacidade de discriminação.</li>
+    <li>A distribuição das respostas mostra que a maioria dos alunos选择了 gabarito correto (B - 63.7%), o que é positivo. No entanto, há um número significativo de erros nas alternativas C (12.84%) e D (9.38%), possivelmente indicando confusões conceituais.</li>
+    <li>A taxa de respostas nulas é muito baixa (0.27%), indicando que os alunos tentaram responder a questão, o que é desejável.</li>
+  </ul>
+
+  <h2>Recomendações</h2>
+  <p>Considerar revisar o item para melhorar sua capacidade de discriminação entre alunos com habilidades diferentes. Embora a maioria dos alunos tenha escolhido a resposta correta, a similaridade nos acertos entre os dois grupos sugere que o item pode não estar desafiando adequadamente os alunos mais capacitados ou ajudando suficientemente aqueles menos preparados.</p>
+</body>
+</html>
+===FIM_HTML===

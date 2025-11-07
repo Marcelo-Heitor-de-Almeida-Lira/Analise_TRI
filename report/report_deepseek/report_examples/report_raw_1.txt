@@ -1,0 +1,95 @@
+<think>
+Ok, primeiro preciso analisar os dados fornecidos do aluno. Ele tem a matrícula 210055325099 e está respondendo à questão 7. Sua habilidade estimada é de 445.5, o que situa no médio-baixo da escala ENEM (200-1000). A dificuldade do item é 692.95, classificada como difícil.
+
+Calculando o gap: 692.95 - 445.5 = 247.45 pontos. Esse gap significativo sugere que a habilidade do aluno está bem abaixo da dificuldade do item, indicando necessidade de melhorias substanciais.
+
+A probabilidade de acerto era de 20.03%, e ele acertou a questão. Comparando com a probabilidade de chute (também 20.03%), o desempenho foi sorteado ou o aluno teve uma boa sorte, já que suas habilidades não alcançam a dificuldade do item.
+
+A competência exigida é compreender transformações geográficas relacionadas a fatores socioeconômicos e culturais. A habilidade necessária é reconhecer a dinâmica dos movimentos sociais na transformação da realidade geográfica. Assuntos englobados incluem relações de poder, impactos socioambientais e organização espacial.
+
+Para melhorar, o aluno deve focar em estudos práticos, como casos reais de migrações e desafios ambientais, usando estratégias ativas e revisões regulares. Estratégias direcionadas incluem analisar gráficos, resolver problemas contextualizados e discutir temas atuais.
+</think>
+
+===INICIO_JSON===
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": 445.5,
+    "DificuldadeItem": 692.95,
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "A probabilidade de acerto foi baixa (20.03%) porque a habilidade estimada do aluno (445.5) está significativamente abaixo da dificuldade do item (692.95), o que torna a tarefa mais difícil para ele.",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "O gap de 247.45 pontos indica que o aluno está em um nível de habilidade substancialmente abaixo da dificuldade do item, sugerindo necessidade de intervenção pedagógica moderada.",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "A probabilidade de acerto foi influenciada positivamente pela sorte, já que a diferença entre habilidade e dificuldade tornou o chute mais arriscado, mas o aluno teve sucesso.",
+    "AcertouItem": true,
+    "Interpretacao_AcertoItem": "O acerto foi possível graças à sorte ou a uma compreensão parcial da matéria, apesar do gap significativo entre habilidade e dificuldade.",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "Os assuntos englobados incluem relações de poder, migrações, impactos socioambientais e organização espacial."
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "Relações socioeconômicas, transformações geográficas, movimentos sociais",
+    "EstrategiaGeralPersonalizada": "Realizar estudos práticos com casos reais e problemas contextualizados."
+  }
+}
+===FIM_JSON===
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 210055325099</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 445.5, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 20.03%</li>
+  </ul>
+  <h2><b>Item avaliado: 7</b></h2>
+  <ul>
+   <li>Gabarito: D</li>
+   <li>Dificuldade Estimada do Item: 692.95 (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: 20.03%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: 692.95 – 445.5 (imprima o resultado da conta, não os dois números subtraindo)</li>
+    <ul>
+      <li>O gap de 247.45 pontos é significativo, indicando que o aluno está em um nível de habilidade substancialmente abaixo da dificuldade do item.</li>
+      <li>Isso sugere necessidade de intervenção pedagógica moderada para preencher as lacunas.</li>
+      <li>O esforço necessário para alcançar a dificuldade do item é considerável, mas possível com dedicação e orientação adequada.</li>
+    </ul>
+    <li>A probabilidade de acerto foi influenciada positivamente pela sorte, já que a diferença entre habilidade e dificuldade tornou o chute mais arriscado, mas o aluno teve sucesso.</li>
+    <li>O acerto foi possível graças à sorte ou a uma compreensão parcial da matéria, apesar do gap significativo entre habilidade e dificuldade.</li>
+  </ul>
+  <li>Conclusão:</li>
+  <ul>
+    <li>Sinergy crítico cruzando todas as variáveis: baixa habilidade, alta dificuldade, probabilidade de acerto baixa e sucesso no item.</li>
+    <li>O desempenho foi atípico positivo, possivelmente devido à sorte ou a uma compreensão parcial da matéria.</li>
+    <li>Relacione a análise com possíveis fatores externos (sorte, raciocínio lógico, conhecimento prévio). Finalize com uma breve orientação sobre os próximos passos do aluno, com foco em desenvolvimento.</li>
+  </ul>
+</ul>
+<h2>Competências e Habilidades</h2>
+<ul>
+    <li>Competência Exigida: Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.</li>
+    <li>Habilidade Exigida: Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.</li>
+    <li>Assuntos englobados: Relações de poder, migrações, impactos socioambientais e organização espacial.</li>
+</ul>
+<h2>Estratégias de Estudo Direcionadas</h2>
+<ul>
+    <li>Tópicos Prioritários: Relações socioeconômicas, transformações geográficas, movimentos sociais</li>
+    <li>Estratégias: Realizar estudos práticos com casos reais e problemas contextualizados.</li>
+  </ul>
+  <h1>GRÁFICO CCI</h1>
+  <iframe src="cci.html"></iframe>
+</body>
+</html>
+===FIM_HTML===

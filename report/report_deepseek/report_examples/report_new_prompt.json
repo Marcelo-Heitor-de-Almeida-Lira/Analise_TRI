@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210054649904",
+    "HabilidadeEstimadaAluno": "805.87",
+    "DificuldadeItem": "709.62",
+    "ProbabilidadeAcerto": "77.01%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(O aluno apresenta uma habilidade estimada de 805.87, enquanto a dificuldade do item é de 709.62. A probabilidade de acerto foi calculada em 77.01%, indicando que o aluno tem um desempenho ligeiramente superior à demanda do item, mas ainda há espaço para melhoria.)",
+    "GapHabilidade": "(709.62 – 805.87)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (-96.25) sugere que o aluno tem uma habilidade levemente superior à dificuldade do item, indicando que o desempenho foi esperado.)",
+    "ProbabilidadeAcertoAcaso": "9.06%",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto aleatório é muito baixa (9.06%), o que reforça a ideia de que o aluno não está meramente chutando, mas possui um conhecimento sólido sobre o tema.)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(O acerto do item é consistente com os outros dados analisados, indicando que o aluno compreendeu adequadamente a questão e aplicou corretamente seus conhecimentos.)",
+    "CompetenciaExigidaItem": "Utilizar o conhecimento geométrico para realizar a leitura e a representação da realidade e agir sobre ela.",
+    "HabilidadeExigidaItem": "Interpretar a localização e a movimentação de pessoas/objetos no espaço tridimensional e sua representação no espaço bidimensional.",
+    "ResumoCompetenciasHabilidades": "(A questão exige uma compreensão sólida da geometria para interpretar e representar situações na realidade, particularmente envolvendo conceitos de localização e movimentação em espaços tridimensional e bidimensional.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Fortalecer a compreensão da relação entre representações espaciais tridimensionais e bidimensionais, prática em problemas que envolvam interpretação de movimentação em espaços三维 e二维)",
+    "EstrategiaGeralPersonalizada": "(Realizar exercícios práticos que envolvem a leitura e interpretação de diagramas e mapas tridimensionais, além de problemas que exijam transferência de conhecimento entre diferentes representações espaciais.)"
+  }
+}

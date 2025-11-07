@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Item: 30</li>
+   <li>Área de Conhecimento: LC</li>
+   <li>Dificuldade Estimada do Item: 820.11 (200 - 1.000). É considerada uma questão Muito difícil</li>
+   <li>Probabilidade de chute: 22.08%</li>
+   <il>Discriminação do Item: 2.58</li>
+   <il>Gabarito: A</il>
+  </ul>
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Curva Característica do Item</h2>
+  <iframe src="../cci_prof.html" style="height:900px; width:1200px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>A questão apresenta uma boa discriminação (2.58), indicando que alunos com habilidade acima da dificuldade obtiveram mais acertos.</li>
+    <li>A probabilidade de acerto ao acaso (22.08%) é consistente com a baixa taxa de acertos esperada para uma questão difícil.</li>
+    <li>Os alunos com habilidade abaixo da dificuldade tiveram um desempenho ligeiramente superior ao acaso, o que pode indicar que a dificuldade estimada está adequada.</li>
+    <li>A distribuição das respostas (marcações na letra C: 28.99%, seguida por A: 24.61%) sugere que os alunos tiveram alguma hesitação, possivelmente devido a distratores fortes.</li>
+  </ul>
+  <h2>Recomendações</h2>
+  <p>Considerar manter o item, uma vez que sua dificuldade e discriminação estão adequadas. No entanto, recomenda-se revisar as alternativas para garantir que não há ambigüidade ou fatores que possam influenciar indevidamente os alunos.</p>
+</body>
+</html>

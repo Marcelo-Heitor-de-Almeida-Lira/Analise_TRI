@@ -1,0 +1,39 @@
+```html
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise de Item</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise Item</b></h1>
+  <h2><b>Dados do Item</b></h2>
+  <ul>
+   <li>Dificuldade Estimada do Item: {692.95} (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: {20.03}%</li>
+   <li>Discriminação do Item: {2.030}</li>
+   <li>Gabarito: {D}</li>
+  </ul>
+  <h2>Distribuição das respostas</h2>
+  <iframe src="../dist_respostas.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Acertos por Nível de Habilidade</h2>
+  <iframe src="../acertos_por_habilidade.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h2>Interpretações dos Resultados</h2>
+  <ul>
+    <li>Ao contrário do que se esperaria para uma questão de dificuldade elevada, a probabilidade de acerto ao acaso é baixa ({20.03}%), indicando que a resposta correta não foi alcançada por meio de chute.</li>
+    <li>Os alunos com habilidade acima da dificuldade do item tiveram uma taxa de acerto ({14.07%}) ligeiramente inferior à esperada, o que pode indicar alguma confusão ou dificuldade em compreender a questão.</li>
+    <li>Os alunos com habilidade abaixo da dificuldade apresentaram taxas mais baixas de acerto ({25.21%}) e erro alto ({57.43%}), o que é coerente com a classificação de difícil da questão.</li>
+    <li>A distribuição das respostas ({A: 13.20%, B: 9.97%, C: 19.11%, D: 39.21%, E: 17.93%}) indica que a opção D foi a mais escolhida, coincidindo com o gabarito.</li>
+    <li>A baixa taxa de respostas nulas ({0.57%}) sugere que os alunos tentaram responder a questão, indicando que ela foi considerada relevante ou interessante.</li>
+  </ul>
+  <h2>Recomendações</h2>
+  <p>Manter o item, uma vez que ele apresenta uma boa discriminação ({2.030}) e é capaz de distinguir alunos com habilidades mais elevadas daqueles com habilidades inferiores. No entanto, recomenda-se analisar as respostas incorretas para identificar possíveis fontes de confusão ou erros na formulação da questão.</p>
+</body>
+</html>
+===FIM_HTML===
+```

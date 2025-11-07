@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": "445.5",
+    "DificuldadeItem": "692.95",
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) está abaixo da dificuldade do item (692.95), resultando em uma probabilidade de acerto baixa (20.03%). Isso sugere que o aluno teve sorte ao acertar a questão, pois sua habilidade estimada não alcançaria regularmente itens tão difíceis.)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (692.95 - 445.5 = 247,45) indica que a habilidade do aluno está significativamente abaixo da dificuldade do item. Isso sugere necessidade de melhorias substanciais na compreensão dos conceitos relacionados.)",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto (20.03%) é igual à probabilidade de chute (20.03%). Isso sugere que o aluno teve sorte em acertar a questão, já que sua habilidade estimada não alcança regularmente itens tão difíceis.)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(O aluno acertou a questão, mas isso foi mais atribuído à sorte do que à compreensão profunda dos conceitos, já que a probabilidade de acerto foi baixa e similar à chance aleatória.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(A questão exige compreensão de como as relações socioeconômicas e culturais afetam os espaços geográficos, bem como a capacidade de analisar movimentos sociais e sua influência na transformação histórica.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Análise das relações entre movimentos sociais e transformações geográficas, dinâmica de poder em espaços urbanos)",
+    "EstrategiaGeralPersonalizada": "(Reforçar a compreensão de como as interações socioeconômicas e culturais influenciam a organização territorial, focando em estudos de caso e simulações práticas.)"
+  }
+}

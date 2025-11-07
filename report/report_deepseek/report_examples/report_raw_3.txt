@@ -1,0 +1,92 @@
+<think>
+Ok, eu preciso analisar os dados TRI de três parâmetros fornecidos no JSON e fornecer um feedback formativo detalhado. Vou começar entendendo cada campo.
+
+Primeiro, vejo que a matrícula do aluno é 210055325099, o item é 7, e a habilidade estimada do aluno é 445.5. A probabilidade de acerto é 20.03%, e ele acertou a questão. O gabarito era D.
+
+A dificuldade do item está em 692.95, classificada como difícil. A probabilidade de acerto por sorte também é 20.03%. A competência exigida foca na compreensão das transformações geográficas e movimentos sociais.
+
+Vou calcular o gap: DIFICULDADE_ITEM - HABILIDADE_ESTIMADA_ALUNO = 692.95 - 445.5 = 247.45. Isso indica que o aluno está bem abaixo da dificuldade, o que sugere necessidade de intervenção pedagógica moderada.
+
+A probabilidade de acerto é igual à de chute, o que pode significar que o aluno teve sorte ou usou estratégias de eliminação.
+
+Como ele acertou, mas com probabilidade baixa, o desempenho é atípico positivo. Comparando com a turma, muitos alunos tiveram dificuldade, o que reforça a necessidade de estudo em movimentos sociais e transformações geográficas.
+
+Para as estratégias, vou focar nos tópicos prioritários como movimentos sociais e dinâmica territorial. Proporei atividades práticas e revisão teórica.
+</think>
+
+===INICIO_JSON===
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": "445.5",
+    "DificuldadeItem": "692.95",
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) é significativamente menor do que a dificuldade do item (692.95), resultando em uma probabilidade de acerto de 20.03%. Isso sugere que o aluno está abaixo da capacidade exigida pelo item)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap de 247.45 pontos na escala ENEM indica uma diferença substancial entre a habilidade do aluno e a dificuldade do item, sinalizando necessidade de melhorias)",
+    "ProbabilidadeAcertoAcaso": "20.03",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto por sorte (20.03%) é idêntica à probabilidade calculada, indicando que o aluno pode ter acertado aleatoriamente)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(Apesar do baixo desempenho relativo, o aluno acertou o item, possivelmente por sorte ou estratégias de eliminação)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(A questão exige compreensão de transformações geográficas influenciadas por fatores socioeconômicos e culturais, além de reconhecimento da dinâmica de movimentos sociais)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Movimentos sociais, dinâmica territorial)",
+    "EstrategiaGeralPersonalizada": "Realizar exercícios focados em interpretação de textos sobre movimentos sociais e sua relação com transformações geográficas."
+  }
+}
+===FIM_JSON===
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { color: #333; }
+  ul { margin-left: 20px; }
+  iframe { margin: 20px 0; }
+  </style>
+</head>
+<body>
+<h1>Relatório de Análise</h1>
+
+<h2>Dados Básicos</h2>
+<ul>
+  <li>Matrícula: 210055325099</li>
+  <li>Item: 7</li>
+  <li>Habilidade Estimada: 445.5</li>
+  <li>Dificuldade do Item: 692.95 (Difícil)</li>
+  <li>Probabilidade de Acerto: 20.03%</li>
+  <li>Acertou: Sim</li>
+</ul>
+
+<h2>Análise Detalhada</h2>
+<ul>
+  <li><strong>Gap de Habilidades:</strong> O aluno apresenta um gap significativo (247.45 pontos) em relação à dificuldade do item, indicando necessidade de melhorias.</li>
+  <li><strong>Probabilidade de Acerto:</strong> A probabilidade de acerto foi influenciada pela diferença entre habilidade e dificuldade, com a mesma taxa da sorte.</li>
+  <li><strong>Conclusão:</strong> O desempenho é atípico positivo, possivelmente devido à sorte ou estratégias de eliminação.</li>
+</ul>
+
+<h2>Competências e Habilidades</h2>
+<ul>
+  <li>Competência Exigida: Compreender transformações geográficas e relações de poder.</li>
+  <li>Habilidade Exigida: Reconhecer dinâmica de movimentos sociais.</li>
+  <li>Assuntos englobados: Movimentos sociais, transformações geográficas, dinâmica territorial.</li>
+</ul>
+
+<h2>Estratégias de Estudo</h2>
+<ul>
+  <li><strong>Tópicos Prioritários:</strong> Movimentos sociais, dinâmica territorial</li>
+  <li><strong>Estratégias:</strong> Realizar exercícios focados em interpretação de textos sobre movimentos sociais e transformações geográficas.</li>
+</ul>
+
+<iframe src="../cci.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+<iframe src="../histogram.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+
+</body>
+</html>
+===FIM_HTML===

@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "001",
+    "HabilidadeEstimadaAluno": 587,
+    "DificuldadeItem": 680,
+    "ProbabilidadeAcerto": "32%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "A habilidade estimada do aluno (587) é menor que a dificuldade do item (680), o que resulta em uma probabilidade de acerto de 32%. Isso sugere que o aluno teve sorte ou um bom raciocínio para alcançar a resposta correta.",
+    "GapHabilidade": "(680 - 587)",
+    "Interpretacao_GapHabilidade": "O gap de 93 pontos indicam que a questão foi ligeiramente difícil para o aluno, mas ele ainda conseguiu acertá-la.",
+    "ProbabilidadeAcertoAcaso": "4%",
+    "Explicacao_Acaso_vs_Acerto": "A probabilidade de acerto sem conhecimento (chute) era baixa (4%), o que destaca a habilidade do aluno em compreender a questão.",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "O acerto foi surpreendente, considerando o gap de habilidades e a baixa probabilidade de chute.",
+    "CompetenciaExigidaItem": "Entender e interpretar fenômenos sociais complexos, analisando diferentes perspectivas e contexto.",
+    "HabilidadeExigidaItem": "Analisar problemas socioantropológicos, considerando fatores como gênero e classe social.",
+    "ResumoCompetenciasHabilidades": "A questão envolvia estudos de caso em antropologia social, requirindo interpretação de textos e compreensão de conceitos teóricos."
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "Abordagens teóricas em antropologia social, análise de contextos socioeconômicos.",
+    "EstrategiaGeralPersonalizada": "Realizar discussões em grupo sobre casos reais e resolver questões antigas do ENEM."
+  }
+}

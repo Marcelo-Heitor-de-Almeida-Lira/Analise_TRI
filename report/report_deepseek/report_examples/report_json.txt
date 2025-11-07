@@ -1,0 +1,85 @@
+<think>
+Okay, so I have this query where the user wants me to act as a specialist in psychometrics and educational analysis. They've provided some 3-parameter IRT data in JSON format and want detailed formative feedback following a specific model. 
+
+First, I need to understand what exactly they're asking for. The data includes fields like student ID, item number, estimated skill level, probability of correct answer, answer key, item difficulty, guessing probability, whether the item was answered correctly, required competence, and required skill.
+
+The analysis instructions are pretty detailed—12 points in total. They want me to calculate the gap between the student's skill level and the item's difficulty, interpret that gap, analyze the correctness probability, check if the result is expected or an outlier, compare success probability with guessing, focus on specific competencies, describe main competence required, detail the skills needed, use the ENEM scale, identify priority topics, propose activities, and suggest study strategies.
+
+The response model they provided has two sections: Detailed Performance Analysis and Targeted Study Strategies. They want me to transcribe data where terms are in curly braces and expand on parts with parentheses. In "Targeted Study Strategies," I can choose content freely but follow the structure otherwise.
+
+I need to make sure all this is in Portuguese since the response model uses Portuguese, so my final output should be a JSON object containing a detailed performance analysis section and targeted study strategies, both in Portuguese.
+
+Let me start by calculating the gap between estimated skill level and item difficulty. The student's level is 805.87, and the item's difficulty is 709.62, so the gap is negative, meaning the student's level is higher than the item's difficulty. 
+
+Next, I need to interpret this gap. A negative gap suggests the student should have found the item easy, which aligns with them answering correctly.
+
+Looking at the probability of a correct answer (77.01%) vs. the guessing probability (9.06%), it's much higher, so the student likely knows the material rather than just guessing.
+
+Since the student answered correctly, I should note that this was expected given their skill level and high probability.
+
+The required competencies and skills are about interpreting locations and movements in 3D space into 2D, which relates to geometry and spatial reasoning. 
+
+For study strategies, since there's no significant gap, but maybe reinforcing the application of geometric knowledge in real-world contexts could help. Practical activities like interactive simulations or group discussions might be beneficial.
+
+I should structure all this information following the model they provided, ensuring I transcribe the data correctly where needed and expand appropriately in Portuguese.
+</think>
+
+```json
+{
+  "STUDENT_ID": "210054649904",
+  "ITEM": 30,
+  "ESTIMATED_SKILL_LEVEL": 805.87,
+  "PROBABILITY_OF_CORRECT_ANSWER": 77.01,
+  "ANSWER_KEY": "E",
+  "ITEM_DIFFICULTY": 709.62,
+  "GUESSING_PROBABILITY": 9.06,
+  "ITEM_CORRECTLY_ANSWERED": true,
+  "REQUIRED_COMPETENCE": "Use geometric knowledge to read and represent reality and act upon it.",
+  "REQUIRED_SKILL": "Interpret the location and movement of people/objects in three-dimensional space and its representation in two-dimensional space."
+}
+
+ANALYSIS INSTRUCTIONS:
+
+1. Calculate and interpret the gap between ESTIMATED_SKILL_LEVEL and ITEM_DIFFICULTY.
+
+2. Interpret the meaning of this gap to determine whether substantial improvement is needed.
+
+3. Analyze the coherence between PROBABILITY_OF_CORRECT_ANSWER and the actual result (ITEM_CORRECTLY_ANSWERED).
+
+4. Identify whether the result was expected, a positive outlier, or a negative outlier.
+
+5. Compare the probability of success with the random guess probability to evaluate factors such as luck or superficial knowledge.
+
+6. Focus on the specific REQUIRED_COMPETENCEand REQUIRED_SKILL.
+
+7. Describe the main competence required by the question.
+
+8. Detail the specific skills needed to answer correctly.
+
+9. Use the ENEM scale (200–1000), not the standard IRT (-4 to 4).
+
+10. Identify the main priority topics for study.
+
+11. Propose practical activities to reinforce the content.
+
+12. Present personalized study strategies to improve learning.
+
+
+RESPONSE MODEL:
+
+Detailed Performance Analysis
+* Student ID: {STUDENT_ID}
+* Your estimated skill level was {ESTIMATED_SKILL_LEVEL}, and the item difficulty was {ITEM_DIFFICULTY}, resulting in a probability of correct response of {PROBABILITY_OF_CORRECT_ANSWER}%. (Expand explanations about the relationship between these three variables and what these relationships represent)
+* Skill gap: ({ITEM_DIFFICULTY} – {ESTIMATED_SKILL_LEVEL}) (Brief interpretation of the result)
+* The probability of guessing correctly was {GUESSING_PROBABILITY}. (Expand on the relationship between this variable and the PROBABILITY_OF_CORRECT_ANSWERand what this relationship means)
+* Did the student get the item right? {ITEM_CORRECTLY_ANSWERED} (Brief interpretation of this result in light of the other analyzed data)
+* Competence required by the item: {REQUIRED_COMPETENCE}
+* Skill required by the item: {REQUIRED_SKILL}
+* (Summary of the topics these required competences and skills cover)
+
+Targeted Study Strategies
+* Priority topics (based on the identified gap)
+* Personalized general strategy
+
+The response must be in portuguese and in the format JSON
+```

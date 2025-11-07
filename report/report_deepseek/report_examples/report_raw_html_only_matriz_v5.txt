@@ -1,0 +1,65 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 210055325099</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 445.5, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 20.03%</li>
+  </ul>
+  <h2><b>Item avaliado: 7</b></h2>
+  <ul>
+   <li>Gabarito: D</li>
+   <li>Dificuldade Estimada do Item: 692.95 (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: 20.03%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: 247.45</li>
+    <ul>
+      <li>A PROBABILIDADE_ACERTO foi influenciada pela diferença entre HABILIDADE_ESTIMADA_ALUNO (445.5) e DIFICULDADE_ITEM (692.95), resultando em 20.03%.</li>
+      <li>As probabilidades de acerto (20.03%) e de chute (20.03%) são iguais, indicando que o aluno pode ter sorteado ou tido um conhecimento superficial.</li>
+      <li>O aluno acertou a questão, possivelmente por sorte ou raciocínio dedutivo.</li>
+    </ul>
+    <li>Análise do Gap:</li>
+    <ul>
+      <li>Gap positivo de 247.45</li>
+      <li>Indica que a habilidade do aluno está abaixo da dificuldade do item, refletindo desempenho abaixo da média.</li>
+      <li>Sugere necessidade moderada de intervenção pedagógica.</li>
+      <li>O esforço necessário para o aluno alcançar a dificuldade do item é considerável.</li>
+    </ul>
+    <li>O aluno acertou a questão.</li>
+    <li>Conclusão:</li>
+    <ul>
+      <li>Desempenho atípico positivo, considerando a baixa probabilidade de acerto.</li>
+      <li>Pode ser atribuído à sorte ou a um raciocínio eficiente.</li>
+      <li>Orientação: Focar em melhorar as habilidades relacionadas a movimentos sociais e transformações geográficas.</li>
+    </ul>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <li>Competência Exigida: Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.</li>
+    <li>Habilidade Exigida: Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação coletiva na transformação da realidade histórico-geográfica.</li>
+    <li>Assuntos englobados: Transformações ambientais, impactos socioeconômicos, movimentos de resistência, participação popular em processos geográficos.</li>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: Movimentos sociais, impacto ambiental, dinâmica urbana, participação coletiva.</li>
+    <li>Estratégias: Revisão de conceitos básicos, prática com questões semelhantes, uso de mapas e gráficos para ilustrar transformações geográficas.</li>
+  </ul>
+  <h1>GRÁFICO CCI</h1>
+  <iframe src="../cci.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h1>Distribuição de Habilidades</h1>
+  <iframe src="../histogram.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

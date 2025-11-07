@@ -1,0 +1,22 @@
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "001",
+    "HabilidadeEstimadaAluno": "650",
+    "DificuldadeItem": "750",
+    "ProbabilidadeAcerto": "43%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (650) é menor que a dificuldade do item (750), resultando em uma probabilidade de acerto de 43%. Isso sugere que o aluno teve alguma dificuldade, mas ainda assim tentou resolver a questão.)",
+    "GapHabilidade": "(750 – 650)",
+    "Interpretacao_GapHabilidade": "(O gap positivo de 100 pontos indica que a dificuldade do item estava ligeiramente acima da habilidade estimada do aluno, o que pode ter afetado seu desempenho.)",
+    "ProbabilidadeAcertoAcaso": "25%",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto (43%) foi ligeiramente superior à probabilidade de chute (25%), indicando que o aluno tentou resolver a questão e não apenas chutou.)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(Apesar do gap, o aluno acertou a questão, possivelmente devido a uma boa estratégia ou sorte.)",
+    "CompetenciaExigidaItem": "Entender e interpretar relações entre variáveis em contextos quantitativos.",
+    "HabilidadeExigidaItem": "Interpretação de gráficos e tabelas, além de habilidades de raciocínio lógico.",
+    "ResumoCompetenciasHabilidades": "(A questão exigiu habilidades em interpretar dados e relacioná-los, possivelmente envolvendo cálculos e compreensão de conceitos básicos.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Interpretação de gráficos, resolução de problemas envolvendo variáveis quantitativas, treinamento de raciocínio lógico)",
+    "EstrategiaGeralPersonalizada": "(Pratique questões semelhantes, revise conceitos básicos e use técnicas de eliminação de alternativas.)"
+  }
+}

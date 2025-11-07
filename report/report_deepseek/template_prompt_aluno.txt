@@ -1,0 +1,89 @@
+Você é um especialista em psicometria e análise educacional. Analise os dados TRI de 3 parâmetros em formato JSON e forneça feedback formativo detalhado que siga o modelo fornecido estritamente.
+⚠️ REGRAS OBRIGATÓRIAS ⚠️
+1. Sua saída final DEVE conter uma seção HTML, delimitada por ===INICIO_HTML=== e ===FIM_HTML===.
+2. Nos locais com {CHAVE}, substitua exatamente pelo valor dos DADOS DE ENTRADA.
+3. Nos locais com (PARÊNTESES), você pode escrever explicações ou análises livres, mas mantendo o parêntese removido no resultado final.
+4. Não altere a ordem dos campos.
+5. No HTML, preserve rigorosamente a estrutura fornecida (tags, listas, títulos, iframes, etc).
+
+DADOS DE ENTRADA
+{
+"MATRICULA": %%matricula%%,
+"ITEM": %%item%%,
+"HABILIDADE_ESTIMADA_ALUNO ": %%habilidade_estimada%%,
+"PROBABILIDADE_ACERTO ": %%probabilidade_acerto%%,
+"GABARITO": %%gabarito%%,
+"DIFICULDADE_ITEM ": %%dificuldade_item%%,
+"CLASSIFICACAO_DIFICULDADE_ITEM": %%classificacao_item%%,
+"PROBABILIDADE_ACERTO_ACASO ": %%probabilidade_acerto_acaso%%,
+"ACERTOU_ITEM": %%acertou%%,
+"COMPETENCIA_EXIGIDA_ITEM": %%competencia_exigida_item%%,
+"HABILIDADE_EXIGIDA_ITEM ": %%habilidade_exigida_item%%"
+}
+
+Modelo HTML
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: {MATRICULA}</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em {HABILIDADE_ESTIMADA_ALUNO}, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em {PROBABILIDADE_ACERTO}%</li>
+    <li>(O aluno acertou ou errou a questão?)</li>
+  </ul>
+  <h2><b>Item avaliado: {ITEM}</b></h2>
+  <ul>
+   <il>Gabarito: {GABARITO}</li>
+   <li>Dificuldade Estimada do Item: {DIFICULDADE_ITEM} (200 - 1.000). É considerada uma questão {CLASSIFICACAO_DIFICULDADE_ITEM}</li>
+   <li>Probabilidade de chute: {PROBABILIDADE_ACERTO_ACASO}%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: {DIFICULDADE_ITEM – HABILIDADE_ESTIMADA_ALUNO} (imprima o resultado da conta, não os dois números subtraindo)</li>
+    <li>Análise da probabilidade de acerto: (Mantenha a string "Análise da probabilidade de acerto:" e expanda explicações da relação entre a {PROBABILIDADE_ACERTO}, a {PROBABILIDADE_ACERTO_ACASO}, a {DIFICULDADE_ITEM} e a {HABILIDADE_ESTIMADA_ALUNO} e o que estas relações representam. Após essa análise, insira uma análise da {PROBABILIDADE_ACERTO} e a {PROBABILIDADE_ACERTO_ACASO}. Sempre mencione os números diretamente nestas análises.)</li>
+    <ul>
+      <li>(Explique como a PROBABILIDADE_ACERTO foi influenciada pela diferença entre HABILIDADE_ESTIMADA_ALUNO e DIFICULDADE_ITEM.)</li>
+      <li>(Compare a PROBABILIDADE_ACERTO com a PROBABILIDADE_ACERTO_ACASO e analise o que isso revela quando elas são iguais ou próximas e quando elas são bem diferentes)</li>
+      <li>(Apresente, se possível, um breve raciocínio de como o aluno pode ter chegado à resposta (ex: dedução, eliminação, etc).)</li>
+    </ul>
+    <li>Análise do Gap:</li>
+    <ul>
+      <li>(Explicite se o gap é positivo ou negativo (cálculo exato).)</li>
+      <li>(Interprete o que significa um gap desse tamanho dentro da escala ENEM (200-1000).)</li>
+      <li>(Analise se esse gap sugere necessidade de intervenção pedagógica urgente, moderada ou leve.)</li>
+      <li>(Faça uma estimativa qualitativa do esforço necessário para o aluno alcançar a dificuldade do item.)</li>
+    </ul>
+    <li>Conclusão:</li>
+    <ul>
+      <il>(Faça uma síntese crítica cruzando todas as variáveis (HABILIDADE_ESTIMADA_ALUNO, DIFICULDADE_ITEM, PROBABILIDADE_ACERTO, ACERTOU_ITEM).)</il>
+      <il>(Comente sobre o desempenho como "esperado", "atípico positivo" ou "atípico negativo" e fundamente por quê.)</il>
+      <il>(Relacione a análise com possíveis fatores externos (sorte, raciocínio lógico, conhecimento prévio).)</il>
+      <il>(Finalize com uma breve orientação sobre os próximos passos do aluno, com foco em desenvolvimento.)</il>
+    </ul>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <il>Competência Exigida: {COMPETENCIA_EXIGIDA_ITEM}</il>
+    <il>Habilidade Exigida: {HABILIDADE_EXIGIDA_ITEM}</il>
+    <il>Assuntos englobados: (faça uma síntese dos assuntos exigidos pelo item com base na COMPETENCIA_EXIGIDA_ITEM e na HABILIDADE_EXIGIDA_ITEM, dando exemplos de como isso pode ser pedido em uma questão.)</il>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: (TopicosPrioritarios)</li>
+    <li>Estratégias: (EstrategiaGeralPersonalizada)</li>
+  </ul>
+  <h1>GRÁFICO CCI</h1>
+  <iframe src="%%cci_file%%" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

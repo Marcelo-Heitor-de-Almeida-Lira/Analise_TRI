@@ -1,0 +1,68 @@
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 210055325099</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 445.5, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 20.03%</li>
+  </ul>
+  <h2><b>Item avaliado: 7</b></h2>
+  <ul>
+   <li>Gabarito: D</li>
+   <li>Dificuldade Estimada do Item: 692.95 (200 - 1.000). É considerada uma questão Difícil</li>
+   <li>Probabilidade de chute: 20.03%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: 692.95 - 445.5 = 247.45 (o gap é positivo)</li>
+    <ul>
+      <li>O gap positivo de 247.45 indica que a dificuldade do item está significativamente acima da habilidade estimada do aluno, o que torna a questão desafiadora para ele.</li>
+      <li>Considerando a escala ENEM (200-1.000), um gap nesse tamanho sugere que o aluno terá uma luta para dominar questões desse nível de dificuldade.</li>
+      <li>A diferença substancial entre habilidade e dificuldade sugere uma necessidade moderada a urgente de intervenção pedagógica, dependendo da progressão do estudante.</li>
+      <li>Estimar que o aluno precisa de um esforço significativo para alcançar a compreensão plena deste tipo de questão.</li>
+    </ul>
+    <li>Análise da probabilidade de acerto:</li>
+    <ul>
+      <li>A PROBABILIDADE_ACERTO de 20.03% foi influenciada diretamente pela diferença entre a HABILIDADE_ESTIMADA_ALUNO (445.5) e a DIFICULDADE_ITEM (692.95), indicando que o aluno tem poucas chances de acerto sem auxílio.</li>
+      <li>A PROBABILIDADE_ACERTO é idêntica à PROBABILIDADE_ACERTO_ACASO (ambas 20.03%), o que sugere que o desempenho do aluno não foi melhor do que o chute aleatório, possivelmente indicando ausência de conhecimento ou sorte inusual.</li>
+      <li>(Apresente, se possível, um breve raciocínio de como o aluno pode ter chegado à resposta (ex: dedução, eliminação, etc)): Dado que a probabilidade de acerto foi igual à chance aleatória, é possível que o aluno tenha utilizado estratégias de eliminação para reduzir as opções, mas sem um conhecimento sólido do assunto.</li>
+    </ul>
+    <li>(O aluno acertou ou errou a questão? Baseie-se na chave ACERTOU_ITEM) O aluno acertou a questão (ACERTOU_ITEM = true).</li>
+    <ul>
+      <li>Conclusão:</li>
+      <ul>
+        <li>Síntese crítica: Apesar da baixa probabilidade de acerto estimada, o aluno conseguiu acertar a questão. Isso pode indicar sorte, um raciocínio lógico eficaz ou uma compreensão mais profunda do tópico do que foi detectado pela TRI.</li>
+        <li>Desempenho: Considerado atípico positivo, pois superou as expectativas baseadas nas estatísticas de habilidade e dificuldade.</li>
+        <li>Fatores externos: Possivelmente sorte ou uma estratégia de eliminação eficiente contribuíram para o acerto.</li>
+        <li>Próximos passos: Recomenda-se fortalecer as bases do aluno em tópicos intermediários e avançados relacionados à competência exigida, para que ele possa minimizar a dependência de fatores aleatórios em questões difíceis.</li>
+      </ul>
+    </ul>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <li>Competência Exigida: Considerando a matrix do ENEM, a competência exigida neste item está relacionada ao domínio de conceitos intermediários e habilidades específicas.</li>
+    <li>Habilidade Exigida: O aluno deve demonstrar capacidade de analisar problemas complexos e aplicar conhecimentos em situações não familiares.</li>
+    <li>Assuntos englobados: A questão provavelmente envolveu tópicos como estratégias de resolução de problemas, compreensão de conceitos teóricos e habilidades de raciocínio lógico. Exemplo prático: uma questão que requer identificar padrões ou relacionamentos complexos em um contexto novo.</li>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: Intensificar o estudo de tópicos intermediários e avançados, com ênfase em habilidades de raciocínio lógico e resolução de problemas.</li>
+    <li>Estratégias: Utilizar técnicas de estudo como mapas mentais, resolução de exercícios desafiadores e revisão constante de conceitos-chave para aprimorar a compreensão.</li>
+  </ul>
+  <h1>GRÁFICO CCI</h1>
+  <iframe src="../cci.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <h1>Distribuição de Habilidades</h1>
+  <iframe src="../histogram.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

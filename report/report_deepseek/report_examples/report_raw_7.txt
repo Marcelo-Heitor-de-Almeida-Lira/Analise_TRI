@@ -1,0 +1,50 @@
+<think>
+Ok, eu preciso analisar os dados TRI fornecidos e gerar um feedback formativo detalhado seguindo o modelo JSON e HTML. Primeiro, vou verificar os dados de entrada.
+
+O aluno tem matrícula 210055325099. A habilidade estimada dele é 445.5, e a dificuldade do item é 692.95. Isso cria um gap negativo, o que pode indicar que o aluno está abaixo da dificuldade do item.
+
+A probabilidade de acerto era de 20.03%, e ele realmente acertou a questão. Comparando com a probabilidade de chute, que também é 20.03%, isso sugere que talvez a sorte tenha influenciado o resultado, já que as probabilidades são iguais.
+
+A competência exigida trata sobre transformações geográficas e movimentos sociais. Isso é importante para identificar quais habilidades específicas o aluno precisa desenvolver.
+
+Agora, preciso estruturar a análise detalhada, interpretando o gap, a probabilidade de acerto e como isso afeta o desempenho. Em seguida, vou indicar as estratégias de estudo direcionadas com base nessas análises.
+</think>
+
+===INICIO_JSON===
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "210055325099",
+    "HabilidadeEstimadaAluno": 445.5,
+    "DificuldadeItem": 692.95,
+    "ProbabilidadeAcerto": "20.03%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (445.5) está abaixo da dificuldade do item (692.95), resultando em uma probabilidade de acerto de 20,03%. Isso sugere que o aluno tem chance baixa de responder corretamente sem revisar tópicos mais complexos.)",
+    "GapHabilidade": "(692.95 – 445.5)",
+    "Interpretacao_GapHabilidade": "(O gap negativo (247,45) indica que o aluno está abaixo da dificuldade do item, necessitando de intervenção pedagógica moderada para compreender melhor os conceitos envolvidos.)",
+    "ProbabilidadeAcertoAcaso": 20.03,
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto foi influenciada pela diferença entre habilidade e dificuldade, resultando em uma chance baixa. A igualdade com a probabilidade de chute sugere que o acerto pode ter sido aleatório ou sorte.)",
+    "AcertouItem": true,
+    "Interpretacao_AcertoItem": "(O aluno acertou apesar das probabilidades baixas, possivelmente por sorte ou conhecimento superficial. Isso é atípico positivo e merece celebração, mas também alerta para a necessidade de reforço em tópicos mais complexos.)",
+    "CompetenciaExigidaItem": "Compreender as transformações dos espaços geográficos como produto das relações socioeconômicas e culturais de poder.",
+    "HabilidadeExigidaItem": "Reconhecer a dinâmica da organização dos movimentos sociais e a importância da participação da coletividade na transformação da realidade histórico-geográfica.",
+    "ResumoCompetenciasHabilidades": "(A questão demanda compreensão de como fatores socioeconômicos e culturais influenciam mudanças geográficas, além da capacidade de analisar movimentos sociais. Os alunos devem ser capazes de relacionar eventos históricos com transformações ambientais.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Transformações geográficas, relações socioeconômicas, movimentos sociais)",
+    "EstrategiaGeralPersonalizada": "(Praticar questões que envolvem a análise de como fatores econômicos e culturais afetam o território; revisar conceitos básicos de movimentos sociais e sua influência na geografia.)"
+  }
+}
+===FIM_JSON===
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <iframe src="../histogram.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+</body>
+</html>
+===FIM_HTML===

@@ -1,0 +1,106 @@
+<think>
+Ok, vou ter que analisar o desempenho de um aluno no ENEM usando os dados fornecidos. Primeiro, preciso entender as variáveis envolvidas: habilidade estimada do aluno, dificuldade do item, probabilidade de acerto e se ele acertou ou não.
+
+A habilidade estimada do aluno é 650, que está bem no meio da escala ENEM (200-1000). Isso sugere que o aluno tem um desempenho médio. A dificuldade do item é de 750, o que classifica a questão como difícil. 
+
+Calculando o gap: 750 - 650 = 100 pontos. Um gap positivo significa que a dificuldade do item estava acima da habilidade estimada do aluno. Isso pode indicar que o aluno teve mais dificuldade nessa questão.
+
+A probabilidade de acerto foi de 43%, e a probabilidade de chute era de 25%. Como as probabilidades estão próximas, mas não iguais, isso sugere que o aluno tentou resolver a questão, possivelmente usando estratégias como eliminação de alternativas. 
+
+O aluno acertou a questão, o que pode indicar que ele soube aproveitar suas habilidades e/ou teve sorte em sua estratégia.
+
+Agora, considerando a turma: outros alunos tiveram uma probabilidade similar, com a maioria errando mas alguns acertando. Isso sugere que a dificuldade do item foi significativa para muitos alunos.
+
+Para a análise, o aluno teve um desempenho ligeiramente abaixo do esperado, considerando a diferença de habilidade e dificuldade. Ele conseguiu acertar apesar da diferença, possivelmente por ter uma boa estratégia ou sorte.
+
+Os tópicos prioritários seriam reforçar as habilidades relacionadas à competência exigida, que é entender e interpretar relações entre variáveis em contextos quantitativos. Atividades práticas como resolver problemas de interpretação de gráficos e tabelas ajudariam.
+
+Uma estratégia personalizada seria focar em treinamento de raciocínio lógico e prática com questões do tipo, além de revisão de conceitos básicos. Comparação com o desempenho da turma mostra que o aluno está no平均水平, então ele precisa melhorar para ultrapassar a média.
+
+Resumindo, o aluno tem um potencial moderado, mas precisa melhorar suas habilidades em lidar com questões difíceis para conseguir resultados mais consistentes.
+</think>
+
+===INICIO_JSON===
+{
+  "AnaliseDetalhadaDesempenho": {
+    "MatriculaAluno": "001",
+    "HabilidadeEstimadaAluno": "650",
+    "DificuldadeItem": "750",
+    "ProbabilidadeAcerto": "43%",
+    "Explicacao_Habilidade_Dificuldade_Probabilidade": "(A habilidade estimada do aluno (650) é menor que a dificuldade do item (750), resultando em uma probabilidade de acerto de 43%. Isso sugere que o aluno teve alguma dificuldade, mas ainda assim tentou resolver a questão.)",
+    "GapHabilidade": "(750 – 650)",
+    "Interpretacao_GapHabilidade": "(O gap positivo de 100 pontos indica que a dificuldade do item estava ligeiramente acima da habilidade estimada do aluno, o que pode ter afetado seu desempenho.)",
+    "ProbabilidadeAcertoAcaso": "25%",
+    "Explicacao_Acaso_vs_Acerto": "(A probabilidade de acerto (43%) foi ligeiramente superior à probabilidade de chute (25%), indicando que o aluno tentou resolver a questão e não apenas chutou.)",
+    "AcertouItem": "true",
+    "Interpretacao_AcertoItem": "(Apesar do gap, o aluno acertou a questão, possivelmente devido a uma boa estratégia ou sorte.)",
+    "CompetenciaExigidaItem": "Entender e interpretar relações entre variáveis em contextos quantitativos.",
+    "HabilidadeExigidaItem": "Interpretação de gráficos e tabelas, além de habilidades de raciocínio lógico.",
+    "ResumoCompetenciasHabilidades": "(A questão exigiu habilidades em interpretar dados e relacioná-los, possivelmente envolvendo cálculos e compreensão de conceitos básicos.)"
+  },
+  "EstrategiasEstudoDirecionadas": {
+    "TopicosPrioritarios": "(Interpretação de gráficos, resolução de problemas envolvendo variáveis quantitativas, treinamento de raciocínio lógico)",
+    "EstrategiaGeralPersonalizada": "(Pratique questões semelhantes, revise conceitos básicos e use técnicas de eliminação de alternativas.)"
+  }
+}
+===FIM_JSON===
+
+===INICIO_HTML===
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+  h1 { text-align: center; }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+  <h2><b>Matrícula do examinando: 001</b></h2>
+  <ul>
+    <li>O examinando teve habilidade estimada em 650, de uma escala de 200 a 1.000</li>
+    <li>O examinando tinha uma probabilidade de acerto estimada em 43%</li>
+  </ul>
+  <h2><b>Item avaliado: 41</b></h2>
+  <ul>
+   <li>Gabarito: A</li>
+   <li>Dificuldade Estimada do Item: 750 (200 - 1.000). É considerada uma questão difícil</li>
+   <li>Probabilidade de chute: 25%</li>
+  </ul>
+  <h2>Análise Detalhada</h2>
+  <ul>
+    <li>Gap entre a Habilidade do aluno e a Dificuldade da questão: 750 – 650</li>
+    <ul>
+      <li>(O gap é positivo, indicando que a dificuldade do item estava acima da habilidade estimada do aluno)</li>
+      <li>(Um gap de 100 pontos sugere que o aluno teve alguma dificuldade em abordar a questão)</li>
+      <li>(Essa diferença pode indicar necessidade de intervenção moderada para reforçar as habilidades relacionadas ao tema)</li>
+      <li>(O esforço necessário para alcançar a dificuldade do item é considerável, mas viável com treino.)</li>
+    </ul>
+    <li>Análise da probabilidade de acerto:</li>
+    <ul>
+      <li>A probabilidade de acerto (43%) foi influenciada positivamente pelo gap e pela tentativa consciente do aluno.</li>
+      <li>A proximidade entre 43% e 25% sugere que o aluno tentou resolver a questão, possivelmente usando estratégias como eliminação de alternativas.</li>
+    </ul>
+    <li>O aluno acertou a questão (true), o que é um desempenho ligeiramente abaixo do esperado considerando os outros fatores.</li>
+    <li>Conclusão:</li>
+    <ul>
+      <li>(O desempenho foi ligeiramente abaixo do esperado, mas o aluno conseguiu acertar a questão, possivelmente por sorte ou boa estratégia.)</li>
+      <li>(O desempenho é considerado "esperado" com um leve toque de sorte ou较好的策略.)</li>
+    </ul>
+  </ul>
+  <h2>Competências e Habilidades</h2>
+  <ul>
+    <li>Competência Exigida: Entender e interpretar relações entre variáveis em contextos quantitativos.</li>
+    <li>Habilidade Exigida: Interpretação de gráficos e tabelas, além de habilidades de raciocínio lógico.</li>
+    <li>Assuntos englobados: A questão envolveu a compreensão de dados e sua interpretação em um contexto quantitativo, possivelmente incluindo cálculos básicos e análise de opções.</li>
+  </ul>
+  <h2>Estratégias de Estudo Direcionadas</h2>
+  <ul>
+    <li>Tópicos Prioritários: Interpretação de gráficos, resolução de problemas envolvendo variáveis quantitativas, treinamento de raciocínio lógico</li>
+    <li>EstrategiaGeralPersonalizada: Pratique questões semelhantes, revise conceitos básicos e use técnicas de eliminação de alternativas.</li>
+  </ul>
+</body>
+</html>
+===FIM_HTML===
