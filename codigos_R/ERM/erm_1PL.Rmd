@@ -1,0 +1,218 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+#Packages
+```{r}
+# # Execute essas linhas apenas se ainda não instalou esses pacotes do R
+# install.packages("eRm") #2.1_1
+# install.packages("dplyr")
+```
+#Bibliotecas necessárias
+```{r}
+library(dplyr)
+library(eRm) #2.1_2
+```
+#Matrizes binarias (Paraná e Pará: base IDEB)
+```{r}
+matriz_LC_binaria_PR <- read.table("pre-processamento/matrizes_binarias/MATRIZ_LC_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+
+matriz_CN_binaria_PR <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CN_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+
+
+matriz_CH_binaria_PR <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CH_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+
+
+matriz_MT_binaria_PR <- read.table("pre-processamento/matrizes_binarias/MATRIZ_MT_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+
+
+matriz_LC_binaria_PA <- read.table("pre-processamento/matrizes_binarias/MATRIZ_LC_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+
+
+matriz_CN_binaria_PA <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CN_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+
+
+matriz_CH_binaria_PA <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CH_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+
+
+matriz_MT_binaria_PA <- read.table("pre-processamento/matrizes_binarias/MATRIZ_MT_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+
+```
+#Calibrar dados com o modelo RM
+```{r}
+matriz_LC_binaria_PR <- matriz_LC_binaria_PR[,-c(1)]
+matriz_CN_binaria_PR <- matriz_CN_binaria_PR[,-c(1)]
+matriz_CH_binaria_PR <- matriz_CH_binaria_PR[,-c(1)]
+matriz_MT_binaria_PR <- matriz_MT_binaria_PR[,-c(1)]
+matriz_LC_binaria_PA <- matriz_LC_binaria_PA[,-c(1)]
+matriz_CN_binaria_PA <- matriz_CN_binaria_PA[,-c(1)]
+matriz_CH_binaria_PA <- matriz_CH_binaria_PA[,-c(1)]
+matriz_MT_binaria_PA <- matriz_MT_binaria_PA[,-c(1)]
+```
+
+```{r}
+calibrar_dados <- function(matriz){
+  mod.R <- RM(matriz) # Função RM() realiza a calibração de dados com o Rasch
+  return(mod.R)
+}
+```
+# Pegar dificuldade do Item
+```{r}
+dados_dificuldade <- function(mod, vetor_1) {
+  item_dificuldade <- round(cbind(-mod$betapar, mod$se.beta), 3)
+  my_list_dificuldade <- list(questao = vetor_1, dificuldade_item = item_dificuldade[,1], erro_padrao = item_dificuldade[,2])
+  nova_lista_dificuldade <- as.data.frame(do.call(cbind, my_list_dificuldade))
+  return(nova_lista_dificuldade)
+}
+```
+
+
+# Verificar se a estimativa está dentro dos critérios
+- se 1 a estimativa indica que a estimativa terminou dentro do critérios de parada padrão sem ser sinalizado por problemas específicos no Estimativa "RM()".
+
+```{r}
+modelo_ERM_CH_PR <- calibrar_dados(matriz_CH_binaria_PR[2:46])
+modelo_ERM_LC_PR <- calibrar_dados(matriz_LC_binaria_PR[2:46])
+modelo_ERM_CN_PR <- calibrar_dados(matriz_CN_binaria_PR[2:46])
+modelo_ERM_MT_PR <- calibrar_dados(matriz_MT_binaria_PR[2:45])
+
+#ES
+modelo_ERM_CH_PA <- calibrar_dados(matriz_CH_binaria_PA[2:46])
+modelo_ERM_LC_PA <- calibrar_dados(matriz_LC_binaria_PA[2:46])
+modelo_ERM_CN_PA <- calibrar_dados(matriz_CN_binaria_PA[2:46])
+modelo_ERM_MT_PA <- calibrar_dados(matriz_MT_binaria_PA[2:45])
+
+summary(modelo_ERM_CH_PR)
+```
+
+```{r}
+modelo_ERM_CH_PR$conv
+modelo_ERM_LC_PR$conv
+modelo_ERM_CN_PR$conv
+modelo_ERM_MT_PR$conv
+
+#ES
+modelo_ERM_CH_PA$conv
+modelo_ERM_LC_PA$conv
+modelo_ERM_CN_PA$conv
+modelo_ERM_MT_PA$conv
+
+```
+# Dificuldade do ITEM (IN R)
+
+- Para cada ITEM da prova geramos a dificuldade estimada e o seu erro padrão:
+```{r}
+#item_dificuldade <- round(cbind(-mod.R$betapar, mod.R$se.beta), 3) 
+# gera uma planilha com as dificuldades estimadas do item
+# [,1] é a estimativa de dificuldade do item
+# [,2] é o erro padrão
+# vetor_1 <- c(1:45) # criando vetor_2
+# my_list_dificuldade <- list(questao = vetor_1, dificuldade_item = item_dificuldade[,1], erro_padrao = item_dificuldade[,2])
+# nova_lista_dificuldade <- as.data.frame(do.call(cbind, my_list_dificuldade))
+```
+
+
+
+```{r}
+vetor1 <- c(1:45)
+vetor_MT <- c(1:39,41:45)
+dif_modelo_ERM_CH_PR <- dados_dificuldade(modelo_ERM_CH_PR,vetor1)
+dif_modelo_ERM_LC_PR <- dados_dificuldade(modelo_ERM_LC_PR,vetor1)
+dif_modelo_ERM_CN_PR <- dados_dificuldade(modelo_ERM_CN_PR,vetor1)
+dif_modelo_ERM_MT_PR <- dados_dificuldade(modelo_ERM_MT_PR,vetor_MT)
+
+dif_modelo_ERM_CH_PA <- dados_dificuldade(modelo_ERM_CH_PA,vetor1)
+dif_modelo_ERM_LC_PA <- dados_dificuldade(modelo_ERM_LC_PA,vetor1)
+dif_modelo_ERM_CN_PA <- dados_dificuldade(modelo_ERM_CN_PA,vetor1)
+dif_modelo_ERM_MT_PA <- dados_dificuldade(modelo_ERM_MT_PA,vetor_MT)
+```
+#Write DIFICULDADE
+```{r}
+#PR
+write.table(dif_modelo_ERM_CH_PR, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_CH_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_ERM_LC_PR, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_LC_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_ERM_CN_PR, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_CN_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_ERM_MT_PR, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_MT_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+#PA
+write.table(dif_modelo_ERM_CH_PA, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_CH_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_ERM_LC_PA, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_LC_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_ERM_CN_PA, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_CN_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_ERM_MT_PA, file = "codigos_R/ERM/dificuldades/dif_modelo_ERM_MT_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+```
+
+#PLOT ICC
+```{r}
+# Abre uma janela para mostrar os ICC
+plotICC(modelo_ERM_CH_PR, item.subset = "all", empICC = list("raw")) #2.1_19
+```
+
+# Person.parameter (Habilidade do aluno)
+
+2.1_20 função Person.parameter: usado para extrair as pontuações de traços latentes estimadas (habilidade)
+
+2.1_21 O objeto p.R contém o theta estimado que corresponde a cada pontuação correta, sendo a primeira coluna pontuação bruta a segunda coluna estimativa da capacidade da pessoa e a terceira coluna erro padrão (tenho que separar isso)
+
+estimativa é calculada usando a interpolação spline
+
+Person Parameters
+
+RAW Score: Pontuação bruta
+Estimate: Estimativa de habilidade
+Std.Error: Erro padrão
+
+```{r}
+#p.R <-person.parameter(mod.R) #2.1_20 #Estudar melhor isso aqui
+#teste <- round(cbind(p.R$thetapar$NAgroup1, p.R$se.theta$Nagroup1), 2) #2.1_22
+#plot(p.R) #2.1_23
+```
+
+```{r}
+gerar_habilidade <- function(mod){
+  p.R <-person.parameter(mod) #2.1_20 #Estudar melhor isso aqui
+  #teste <- round(cbind(p.R$thetapar$NAgroup1, p.R$se.theta$Nagroup1), 2) #2.1_22
+  extra <- cbind(p.R$pred$`1`$x, p.R$pred$`1`$y) #transformo esses dados para uma matriz
+  my_list <- list(raw_score = extra[,1],halibidade_estimada = extra[,2])#transformar o resultado da pontuação bruta e a estimativa em dataframe
+nova_lista <- as.data.frame(do.call(cbind, my_list))
+  #plot(p.R) #2.1_23
+  return(nova_lista)
+}
+```
+
+
+```{r}
+#names(p.R) #verifica o nome das minhas colunas que são manipulaveis
+#p.R$pred.list #lista de valores contendo Raw Score e estimativas
+#p.R$pred$`Raw Score`$x #somente a pontuação bruta
+#p.R$pred$`1`$y #somente as estimativas de habilidade
+#extra <- cbind(p.R$pred$`1`$x, p.R$pred$`1`$y) #transformo esses dados para uma matriz
+#my_list <- list(raw_score = extra[,1],halibidade_estimada = extra[,2]) #transformar o resultado da pontuação bruta e a estimativa em dataframe
+#nova_lista <- as.data.frame(do.call(cbind, my_list))
+#matriz Score_group_habilidade -> associar com a a estimativa de habilidade de cada um de acordo com seu RAW Score
+#ddd[3,"raw_score"] #pegar a pontuacao bruta (fazer isso em Python)
+```
+
+```{r}
+#Paraná
+habil_modelo_ERM_LC_PR <- gerar_habilidade(modelo_ERM_LC_PR)
+habil_modelo_ERM_MT_PR <- gerar_habilidade(modelo_ERM_MT_PR)
+habil_modelo_ERM_CN_PR <- gerar_habilidade(modelo_ERM_CN_PR)
+habil_modelo_ERM_CH_PR <- gerar_habilidade(modelo_ERM_CH_PR)
+#Pará
+habil_modelo_ERM_LC_PA <- gerar_habilidade(modelo_ERM_LC_PA)
+habil_modelo_ERM_MT_PA <- gerar_habilidade(modelo_ERM_MT_PA)
+habil_modelo_ERM_CN_PA <- gerar_habilidade(modelo_ERM_CN_PA)
+habil_modelo_ERM_CH_PA <- gerar_habilidade(modelo_ERM_CH_PA)
+```
+
+```{r}
+#criação do CSV com as habilidades estimadas de Linguagens e Códigos
+write.table(habil_modelo_ERM_LC_PR, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_LC_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_modelo_ERM_MT_PR, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_MT_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_modelo_ERM_CN_PR, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_CN_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_modelo_ERM_CH_PR, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_CH_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+
+write.table(habil_modelo_ERM_LC_PA, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_LC_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_modelo_ERM_MT_PA, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_MT_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_modelo_ERM_CN_PA, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_CN_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_modelo_ERM_CH_PA, file = "codigos_R/ERM/habilidades/habil_modelo_ERM_CH_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+```

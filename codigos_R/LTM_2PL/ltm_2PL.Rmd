@@ -1,0 +1,239 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#PACOTES E CHAMADA DE BIBLIOTECA
+```{r}
+# Execute apenas se você ainda não tiver os pacotes
+# install.packages("ltm") #2.1_1
+# install.packages("dplyr")
+```
+
+```{r}
+library(ltm) #2.1_2
+library(dplyr)
+```
+#Leitura das matrizes binárias Amazonas
+```{r}
+matriz_LC_binaria_PR_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_LC_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+matriz_LC_binaria_PR_amarela <- matriz_LC_binaria_PR_amarela[,-c(1)]
+matriz_CN_binaria_PR_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CN_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+matriz_CN_binaria_PR_amarela <- matriz_CN_binaria_PR_amarela[,-c(1)]
+matriz_CH_binaria_PR_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CH_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+matriz_CH_binaria_PR_amarela <- matriz_CH_binaria_PR_amarela[,-c(1)]
+matriz_MT_binaria_PR_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_MT_BINARIA_PR_amarela.csv", header = TRUE, sep= ",")
+matriz_MT_binaria_PR_amarela <- matriz_MT_binaria_PR_amarela[,-c(1)]
+
+matriz_LC_binaria_PA_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_LC_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+matriz_LC_binaria_PA_amarela <- matriz_LC_binaria_PA_amarela[,-c(1)]
+matriz_CN_binaria_PA_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CN_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+matriz_CN_binaria_PA_amarela <- matriz_CN_binaria_PA_amarela[,-c(1)]
+matriz_CH_binaria_PA_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_CH_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+matriz_CH_binaria_PA_amarela <- matriz_CH_binaria_PA_amarela[,-c(1)]
+matriz_MT_binaria_PA_amarela <- read.table("pre-processamento/matrizes_binarias/MATRIZ_MT_BINARIA_PA_amarela.csv", header = TRUE, sep= ",")
+matriz_MT_binaria_PA_amarela <- matriz_MT_binaria_PA_amarela[,-c(1)]
+
+```
+
+#Aplicação do modelo ltm nas matrizes binarias das areas
+O z1 é uma variável latente, que representa a habilidade dos indivíduos no modelo de TRI. 
+O ~ z1 é usado na função ITR.param() como um modelo que relaciona a probabilidade de resposta de um indivíduo a um item à sua habilidade latente.
+```{r Aplicação do modelo ltm nas matrizes binarias das areas}
+modelo_LTM_2PL <- function(matriz_binaria) {
+  mod.2pl <- ltm(matriz_binaria~z1, IRT.param=T) # 2. 2_5
+  return(mod.2pl)
+}
+```
+#Dificuldade do ITEM e sua discriminação
+```{r Dificuldade do ITEM e sua discriminação}
+dificuldade_LTM <- function(modelo,questao) {
+  coef_df <- as.data.frame(coef(modelo))
+  #questao <- c(1:45)
+  coef_df <- rename(coef_df, "dificuldade_item" = "Dffclt")
+  coef_df <- rename(coef_df, "discriminacao_item" = "Dscrmn")
+  coef_df$questao <- questao
+  #coef_df <- select(coef_df, questao, dificuldade_item, discriminacao_item)
+  return(coef_df)
+}
+```
+
+#FUNÇÃO: Concatenação das colunas de respostas 
+```{r Concatenação das colunas de respostas }
+concatenar_colunas <- function(dataframe,inicio,fim) {
+  dataframe$respostas <- apply(dataframe[,inicio:fim], 1, function(x) paste(x, collapse = ""))
+  return(dataframe)
+}
+```
+
+```{r}
+summarize_data <- function(dataframe) {
+  df_novo <- dataframe %>%
+    group_by(respostas) %>%
+    summarise(Ocorrência = n(),alunos_id_string = toString(matricula))
+    #summarise(Ocorrência = n(), alunos_id_list = list(matricula),alunos_id_string = toString(matricula)) Type list não é salvo em CSV
+  return(df_novo)
+}
+```
+
+#FUNÇÃO: Nesta função, percorremos cada valor da coluna "respostas" do dataframe_X e comparamos com cada valor da coluna "respostas" do dataframe_Y. Se houver uma correspondência, o valor é adicionado à coluna "novas_respostas" e o valor correspondente da coluna "z1" do dataframe_X é adicionado à coluna "habilidade".
+```{r}
+comparar_dataframes <- function(dataframe_X, dataframe_Y) {
+  # Filtra as linhas do dataframe_X que possuem a mesma resposta no dataframe_Y
+  linhas_comuns <- dataframe_X[dataframe_X$respostas %in% dataframe_Y$respostas, ]
+  
+  # Compara as respostas e concatena as linhas correspondentes dos dois dataframes
+  dataframe_Z <- cbind(linhas_comuns, dataframe_Y[dataframe_Y$respostas %in% linhas_comuns$respostas, ])
+  # Remove as colunas duplicadas
+  dataframe_Z <- dataframe_Z[, !duplicated(colnames(dataframe_Z))]
+  colnames(dataframe_Z)[colnames(dataframe_Z) == "z1"] <- "habilidade"
+  return(dataframe_Z)
+}
+```
+
+#Aplicação do Modelo LTM 2PL para todas as areas do Amazonas
+```{r}
+modelo_2PL_LTM_LC_PR <- modelo_LTM_2PL(matriz_LC_binaria_PR_amarela[2:46])
+modelo_2PL_LTM_CH_PR <- modelo_LTM_2PL(matriz_CH_binaria_PR_amarela[2:46])
+modelo_2PL_LTM_CN_PR <- modelo_LTM_2PL(matriz_CN_binaria_PR_amarela[2:46])
+modelo_2PL_LTM_MT_PR <- modelo_LTM_2PL(matriz_MT_binaria_PR_amarela[2:45])
+#Aplicação do Modelo LTM 2PL Modelo para todas as areas do Pará
+modelo_2PL_LTM_LC_PA <- modelo_LTM_2PL(matriz_LC_binaria_PA_amarela[2:46])
+modelo_2PL_LTM_CH_PA <- modelo_LTM_2PL(matriz_CH_binaria_PA_amarela[2:46])
+modelo_2PL_LTM_CN_PA <- modelo_LTM_2PL(matriz_CN_binaria_PA_amarela[2:46])
+modelo_2PL_LTM_MT_PA <- modelo_LTM_2PL(matriz_MT_binaria_PA_amarela[2:45])
+```
+
+#HABILIDADE: Acessar a habilidade estimada do aluno
+factor.scores() é usada para estimar as habilidades dos respondentes com base nos parâmetros de item do modelo ajustado e nas respostas observadas.
+A saída da função factor.scores() é um objeto de classe factor.scores, que contém as habilidades estimadas dos respondentes e outras informações relevantes, como a matriz de informações dos itens e as pontuações padronizadas dos respondentes.
+colunas adicionadas:
+  * Obs: significa a pontuação observada
+  * Exp: significa a pontuação esperada ou prevista com base nas estimativas de habilidade e nos parametros dos itens do modelo.
+  * z1: score latente para cada individuo (habilidade de acordo com as respostas observadas)
+  
+  OBSERVAÇÕES: A função factor.scores() pode modificar a matriz de dados devido à maneira como os escores latentes são estimados. A estimação dos escores latentes é baseada nos parâmetros dos itens do modelo TRI e nas respostas dos indivíduos. Durante o cálculo dos escores latentes, a função pode modificar as respostas dos indivíduos, substituindo os valores observados pelas suas estimativas esperadas com base nos parâmetros do modelo. Essa modificação pode ser encontrada na saída da função na forma da coluna "Obs.Exp". Por padrão, a função factor.scores() usa o método EAP (Expectation-Maximization) para estimar os escores latentes. Esse método é útil para reduzir o efeito do erro de medição e melhorar a precisão das estimativas dos escores latentes. No entanto, o custo disso é que os valores observados das respostas dos indivíduos são modificados. Para evitar a modificação da matriz de dados, é possível especificar o argumento impute=FALSE ao chamar a função factor.scores(). Isso evita que a função modifique as respostas dos indivíduos e retorna apenas os escores latentes estimados, sem qualquer impacto na matriz de dados original. 
+fonte: chatgpt
+
+#APLICAÇÃO DA factor.scores no modeo LTM 2PL AM (Gera habilidade)
+```{r}
+habil_2PL_LTM_LC_PR <- factor.scores(modelo_2PL_LTM_LC_PR, impute=FALSE)
+habil_2PL_LTM_MT_PR <- factor.scores(modelo_2PL_LTM_MT_PR, impute=FALSE)
+habil_2PL_LTM_CN_PR <- factor.scores(modelo_2PL_LTM_CN_PR, impute=FALSE)
+habil_2PL_LTM_CH_PR <- factor.scores(modelo_2PL_LTM_CH_PR, impute=FALSE)
+
+#APLICAÇÃO DA factor.scores no modeo LTM 2PL ES
+habil_2PL_LTM_LC_PA <- factor.scores(modelo_2PL_LTM_LC_PA, impute=FALSE)
+habil_2PL_LTM_MT_PA <- factor.scores(modelo_2PL_LTM_MT_PA, impute=FALSE)
+habil_2PL_LTM_CN_PA <- factor.scores(modelo_2PL_LTM_CN_PA, impute=FALSE)
+habil_2PL_LTM_CH_PA <- factor.scores(modelo_2PL_LTM_CH_PA, impute=FALSE)
+```
+
+#Utilização da função concatenar_colunas para ter uma chave de busca para as matrizes
+```{r}
+matriz_MT_binaria_PR_amarela <- concatenar_colunas(matriz_MT_binaria_PR_amarela,2,45)
+matriz_CN_binaria_PR_amarela <- concatenar_colunas(matriz_CN_binaria_PR_amarela,2,46)
+matriz_LC_binaria_PR_amarela <- concatenar_colunas(matriz_LC_binaria_PR_amarela,2,46)
+matriz_CH_binaria_PR_amarela <- concatenar_colunas(matriz_CH_binaria_PR_amarela,2,46)
+
+matriz_MT_binaria_PA_amarela <- concatenar_colunas(matriz_MT_binaria_PA_amarela,2,45)
+matriz_CN_binaria_PA_amarela <- concatenar_colunas(matriz_CN_binaria_PA_amarela,2,46)
+matriz_LC_binaria_PA_amarela <- concatenar_colunas(matriz_LC_binaria_PA_amarela,2,46)
+matriz_CH_binaria_PA_amarela <- concatenar_colunas(matriz_CH_binaria_PA_amarela,2,46)
+```
+
+
+```{r}
+matriz_CH_binaria_PR_amarela <- summarize_data(matriz_CH_binaria_PR_amarela)
+matriz_LC_binaria_PR_amarela <- summarize_data(matriz_LC_binaria_PR_amarela)
+matriz_MT_binaria_PR_amarela <- summarize_data(matriz_MT_binaria_PR_amarela)
+matriz_CN_binaria_PR_amarela <- summarize_data(matriz_CN_binaria_PR_amarela)
+
+matriz_CH_binaria_PA_amarela <- summarize_data(matriz_CH_binaria_PA_amarela)
+matriz_LC_binaria_PA_amarela <- summarize_data(matriz_LC_binaria_PA_amarela)
+matriz_MT_binaria_PA_amarela <- summarize_data(matriz_MT_binaria_PA_amarela)
+matriz_CN_binaria_PA_amarela <- summarize_data(matriz_CN_binaria_PA_amarela)
+```
+
+#Utilização da função concatenar_colunas para ter uma chave de busca para a habilidade - AM
+```{r}
+habil_2PL_LTM_LC_PR <- concatenar_colunas(habil_2PL_LTM_LC_PR$score.dat,1,45)
+habil_2PL_LTM_MT_PR <- concatenar_colunas(habil_2PL_LTM_MT_PR$score.dat,1,44)
+habil_2PL_LTM_CN_PR <- concatenar_colunas(habil_2PL_LTM_CN_PR$score.dat,1,45)
+habil_2PL_LTM_CH_PR <- concatenar_colunas(habil_2PL_LTM_CH_PR$score.dat,1,45)
+
+habil_2PL_LTM_LC_PA <- concatenar_colunas(habil_2PL_LTM_LC_PA$score.dat,1,45)
+habil_2PL_LTM_MT_PA <- concatenar_colunas(habil_2PL_LTM_MT_PA$score.dat,1,44)
+habil_2PL_LTM_CN_PA <- concatenar_colunas(habil_2PL_LTM_CN_PA$score.dat,1,45)
+habil_2PL_LTM_CH_PA <- concatenar_colunas(habil_2PL_LTM_CH_PA$score.dat,1,45)
+```
+
+
+#habilidade_2PL_LTM_AREAX_ESTADOY: Esse dataframe vai conter os padrões de respostas e suas respectivas habilidades, observações
+```{r}
+habil_2PL_LTM_LC_PR <- comparar_dataframes(habil_2PL_LTM_LC_PR,matriz_LC_binaria_PR_amarela)
+habil_2PL_LTM_MT_PR <- comparar_dataframes(habil_2PL_LTM_MT_PR,matriz_MT_binaria_PR_amarela)
+habil_2PL_LTM_CN_PR <- comparar_dataframes(habil_2PL_LTM_CN_PR,matriz_CN_binaria_PR_amarela)
+habil_2PL_LTM_CH_PR <- comparar_dataframes(habil_2PL_LTM_CH_PR,matriz_CH_binaria_PR_amarela)
+
+habil_2PL_LTM_LC_PA <- comparar_dataframes(habil_2PL_LTM_LC_PA,matriz_LC_binaria_PA_amarela)
+habil_2PL_LTM_MT_PA <- comparar_dataframes(habil_2PL_LTM_MT_PA,matriz_MT_binaria_PA_amarela)
+habil_2PL_LTM_CN_PA <- comparar_dataframes(habil_2PL_LTM_CN_PA,matriz_CN_binaria_PA_amarela)
+habil_2PL_LTM_CH_PA <- comparar_dataframes(habil_2PL_LTM_CH_PA,matriz_CH_binaria_PA_amarela)
+```
+
+#Ordenar a tabela pela habilidade em ordem crescente
+```{r}
+habil_2PL_LTM_LC_PR <- habil_2PL_LTM_LC_PR[order(habil_2PL_LTM_LC_PR$habilidade,decreasing = FALSE), ]
+habil_2PL_LTM_MT_PR <- habil_2PL_LTM_MT_PR[order(habil_2PL_LTM_MT_PR$habilidade,decreasing = FALSE), ]
+habil_2PL_LTM_CN_PR <- habil_2PL_LTM_CN_PR[order(habil_2PL_LTM_CN_PR$habilidade,decreasing = FALSE), ]
+habil_2PL_LTM_CH_PR <- habil_2PL_LTM_CH_PR[order(habil_2PL_LTM_CH_PR$habilidade,decreasing = FALSE), ]
+#Ordenar a tabela pela habilidade em ordem crescente ES
+habil_2PL_LTM_LC_PA <- habil_2PL_LTM_LC_PA[order(habil_2PL_LTM_LC_PA$habilidade,decreasing = FALSE), ]
+habil_2PL_LTM_MT_PA <- habil_2PL_LTM_MT_PA[order(habil_2PL_LTM_MT_PA$habilidade,decreasing = FALSE), ]
+habil_2PL_LTM_CN_PA <- habil_2PL_LTM_CN_PA[order(habil_2PL_LTM_CN_PA$habilidade,decreasing = FALSE), ]
+habil_2PL_LTM_CH_PA <- habil_2PL_LTM_CH_PA[order(habil_2PL_LTM_CH_PA$habilidade,decreasing = FALSE), ]
+```
+
+
+#SALVAR habilidada usando a função comparar_valores de acordo com o padrão de respostas do aluno - AM E ES
+```{r} 
+write.table(habil_2PL_LTM_LC_PR, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_LC_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_2PL_LTM_MT_PR, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_MT_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_2PL_LTM_CH_PR, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_CH_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_2PL_LTM_CN_PR, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_CN_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+
+write.table(habil_2PL_LTM_LC_PA, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_LC_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_2PL_LTM_MT_PA, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_MT_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_2PL_LTM_CH_PA, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_CH_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(habil_2PL_LTM_CN_PA, file = "codigos_R/LTM_2PL/habilidades/habil_modelo_2PLM_LTM_CN_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+```
+
+```{r}
+vetor1 <- c(1:45)
+vetor_MT <- c(1:39,41:45)
+
+dif_modelo_2PLM_LC_PR <- dificuldade_LTM(modelo_2PL_LTM_LC_PR,vetor1)
+dif_modelo_2PLM_LC_PA <- dificuldade_LTM(modelo_2PL_LTM_LC_PA,vetor1)
+dif_modelo_2PLM_MT_PR <- dificuldade_LTM(modelo_2PL_LTM_MT_PR,vetor_MT)
+dif_modelo_2PLM_MT_PA <- dificuldade_LTM(modelo_2PL_LTM_MT_PA,vetor_MT)
+dif_modelo_2PLM_CN_PR <- dificuldade_LTM(modelo_2PL_LTM_CN_PR,vetor1)
+dif_modelo_2PLM_CN_PA <- dificuldade_LTM(modelo_2PL_LTM_CN_PA,vetor1)
+dif_modelo_2PLM_CH_PR <- dificuldade_LTM(modelo_2PL_LTM_CH_PR,vetor1)
+dif_modelo_2PLM_CH_PA <- dificuldade_LTM(modelo_2PL_LTM_CH_PA,vetor1)
+```
+
+#WRITE DIFICULDADE CSV AM E ES
+```{r} 
+
+write.table(dif_modelo_2PLM_LC_PR, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_LC_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_2PLM_CN_PR, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_CN_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_2PLM_CH_PR, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_CH_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_2PLM_MT_PR, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_MT_PR.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+
+write.table(dif_modelo_2PLM_LC_PA, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_LC_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_2PLM_CN_PA, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_CN_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_2PLM_CH_PA, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_CH_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+write.table(dif_modelo_2PLM_MT_PA, file = "codigos_R/LTM_2PL/dificuldades/dif_2PLM_LTM_MT_PA.csv",  sep = ",", quote = TRUE, row.names = TRUE, eol = "\r\n")
+```
+

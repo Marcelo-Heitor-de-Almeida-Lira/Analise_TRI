@@ -1,0 +1,357 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+## Packages
+```{r Packages}
+# Execute apenas se não tiver os pacotes
+# install.packages("plotly")
+# install.packages("dplyr")
+# install.packages("ggplot2")
+# install.packages("orca") # Aparentemente foi descontinuado, não funciona mais
+```
+## Library
+```{r library}
+library(dplyr)
+# library(plotly)
+# library(orca)
+#library("magrittr")
+```
+
+## Leitura do CSV: Leitura das tabelas de dificuldade do item das áreas
+```{r}
+dif_modelo_ERM_LC_PR <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_LC_PR.csv", header = TRUE, sep= ",")
+dif_modelo_ERM_MT_PR <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_MT_PR.csv", header = TRUE, sep= ",")
+dif_modelo_ERM_CN_PR <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_CN_PR.csv", header = TRUE, sep= ",")
+dif_modelo_ERM_CH_PR <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_CH_PR.csv", header = TRUE, sep= ",")
+
+dif_modelo_ERM_LC_PA <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_LC_PA.csv", header = TRUE, sep= ",")
+dif_modelo_ERM_MT_PA <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_MT_PA.csv", header = TRUE, sep= ",")
+dif_modelo_ERM_CN_PA <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_CN_PA.csv", header = TRUE, sep= ",")
+dif_modelo_ERM_CH_PA <- read.table("codigos_R/ERM/dificuldades/dif_modelo_ERM_CH_PA.csv", header = TRUE, sep= ",")
+```
+
+## Theta
+
+```{r}
+theta <- seq(-5,5,.0001)
+```
+
+
+### Após leitura devemos ordenar o datataframe pela coluna de dificuldade do item
+
+```{r ordena pela ordem decrescente}
+#df_dificuldade_LC_AM_Ord <- arrange(df_dificuldade_LC_AM,desc(dificuldade_item))
+#df_dificuldade_LC_AM_Ord
+```
+
+### Dataframe com os 5 itens mais dificeis e faceis (bhard e beasy)
+
+```{r pegar as 5 primeiras questões mais dificeis}
+#bhard_vetor <- head(df_dificuldade_LC_AM_Ord,5)
+#beasy_vetor <- tail(df_dificuldade_LC_AM_Ord,5) #Pegar a questão também
+```
+
+### Criação do vetor com os valores de Theta
+
+## Função de geração de um vetor de probabilidade (P)
+Temos os argumentos: - **b** = sendo a dificuldade do item - **a** = a
+discriminação - **theta** = habilidade - **P** = criará um vetor de 61
+valores das probabilidades de resposta correta com base no respectivos
+61 pontos de habilidade, dificuldade do item e discriminação do item.
+
+```{r função probabilidade 2 parametro e Rash}
+gera_probabilidade <- function(b,theta,a = 1){ # Revisar função
+  L <- a * (theta - b)
+  P <- 1 / (1 + exp(-L))
+  return(P)
+}
+```
+`
+# Função que cria uma lista de vetores de probabilidades
+Função retorna uma lista: onde cada indice da lista[[i]] tem um vetor de
+probabilidades de acordo com a dificuldade do cada item data_dificuldade
+= dataframe de dificuldade do item total_questao = total questao das
+provas
+
+```{r criar lista de probabilidades de acordo com a dificuldade do item}
+criar_lista <- function(df_dif_itens,theta,a){
+  qtd_itens <- nrow(df_dif_itens)
+  lista <- list()
+  
+  for(i in 1:qtd_itens){
+    lista[[i]] <- gera_probabilidade(df_dif_itens[i,2],theta,a)
+  }
+  return(lista)
+}
+```
+
+# Tratamento do Dataframe
+
+Step 1: as.data.frame(do.call(rbind, lista_prob)): combina os elementos
+de uma lista de dataframes usando a função rbind() e retorna um único
+dataframe com todas probabilidades estimadas. Step 2: o df \<-
+as.data.frame(t(df)) é usada para transpor um dataframe e transformar as
+colunas em linhas. Step 3: Cria uma coluna com os valores do vetor theta
+
+```{r}
+tratamento_df <- function(lista_prob, df_dif_item, theta){
+  total_itens <- nrow(df_dif_item)
+  df <- as.data.frame(do.call(rbind,lista_prob)) #step1
+  df <- as.data.frame(t(df)) #step2
+  df["theta"] <- theta #step3
+  lista_aux <- list()
+ 
+  for(i in 1:total_itens){
+    lista_aux <- append(lista_aux, paste("Item ",df_dif_item["questao"][i,1]))
+  }
+  colnames(df) <- c(lista_aux,"theta")
+  df <- df %>% relocate(theta, .before = colnames(df)[1])
+  row.names(df) <- NULL
+  return(df)
+}
+```
+
+## Gerar gráfico de Probabilidade de acerto do item
+
+```{r Funcão para gerar scatter}
+# gera_Scatter <- function(df, vetor_num_item){
+#   total_itens <- ncol(df)
+#   Scatter <- plot_ly(x = df$theta, #pegar a coluna theta
+#                      y =df[vetor_num_item[2]][,], #Iniciar pela 2º coluna devido a 1º conter os valores de Theta
+#                      name = vetor_num_item[1], #Iniciar pelo primeiro valor ITEM 1
+#                      type = "scatter",
+#                      mode = "lines",
+                     
+#                      ) %>%
+#           layout(xaxis = list(title = 'Habilidade θ',
+#                         zeroline = F
+#                        ),
+#            yaxis = list(title = 'Probabilidade de acerto P(θ)',
+#                         zeroline = F
+#                         ))
+  
+  
+#   for(i in 3:total_itens){ #continuar o loop
+#     Scatter <-Scatter %>% add_trace(x = df$theta, 
+#                                     y = df[,i],
+#                                     name = vetor_num_item[i-1]) #ele vai até -1 devido a coluna do theta no dataframe
+#   }
+#   return(Scatter)
+# }
+```
+
+
+#Gera todos dataframe de todas as ares e suas probabilidades
+
+```{r}
+prob_ERM_LC_PR <- tratamento_df(criar_lista(dif_modelo_ERM_LC_PR,theta,1), dif_modelo_ERM_LC_PR, theta)
+prob_ERM_MT_PR <- tratamento_df(criar_lista(dif_modelo_ERM_MT_PR,theta,1), dif_modelo_ERM_MT_PR, theta)
+prob_ERM_CN_PR <- tratamento_df(criar_lista(dif_modelo_ERM_CN_PR,theta,1), dif_modelo_ERM_CN_PR, theta)
+prob_ERM_CH_PR <- tratamento_df(criar_lista(dif_modelo_ERM_CH_PR,theta,1), dif_modelo_ERM_CH_PR, theta)
+
+prob_ERM_LC_PA <- tratamento_df(criar_lista(dif_modelo_ERM_LC_PA,theta,1), dif_modelo_ERM_LC_PA, theta)
+prob_ERM_MT_PA <- tratamento_df(criar_lista(dif_modelo_ERM_MT_PA,theta,1), dif_modelo_ERM_MT_PA, theta)
+prob_ERM_CN_PA <- tratamento_df(criar_lista(dif_modelo_ERM_CN_PA,theta,1), dif_modelo_ERM_CN_PA, theta)
+prob_ERM_CH_PA <- tratamento_df(criar_lista(dif_modelo_ERM_CH_PA,theta,1), dif_modelo_ERM_CH_PA, theta)
+
+```
+
+## Plotar gráfico Scatter
+
+observação: names(df_final)[2:46] sendo passado nesse intervalo devido a
+coluna Theta
+
+```{r}
+#gera_Scatter(prob_ERM_CH_PR,names(prob_ERM_CH_PR[2:46]))
+#gera_Scatter(prob_ERM_MT_PR,names(prob_ERM_MT_PR[2:45]))
+#gera_Scatter(prob_ERM_CN_PR,names(prob_ERM_CN_PR[2:46]))
+#gera_Scatter(prob_ERM_LC_PR,names(prob_ERM_LC_PR[2:46]))
+
+#gera_Scatter(prob_ERM_CH_PA,names(prob_ERM_CH_PA[2:46]))
+#gera_Scatter(prob_ERM_MT_PA,names(prob_ERM_MT_PA[2:45]))
+#gera_Scatter(prob_ERM_CN_PA,names(prob_ERM_CN_PA[2:46]))
+#gera_Scatter(prob_ERM_LC_PA,names(prob_ERM_LC_PA[2:46]))
+```
+
+```{r}
+# write.csv(prob_ERM_LC_PR, "codigos_R/ERM/probabilidades/prob_ERM_1PL_LC_PR.csv", row.names=FALSE)
+# write.csv(prob_ERM_MT_PR, "codigos_R/ERM/probabilidades/prob_ERM_1PL_MT_PR.csv", row.names=FALSE)
+# write.csv(prob_ERM_CH_PR, "codigos_R/ERM/probabilidades/prob_ERM_1PL_CH_PR.csv", row.names=FALSE)
+# write.csv(prob_ERM_CN_PR, "codigos_R/ERM/probabilidades/prob_ERM_1PL_CN_PR.csv", row.names=FALSE)
+
+# #ES
+# write.csv(prob_ERM_LC_PA, "codigos_R/ERM/probabilidades/prob_ERM_1PL_LC_PA.csv", row.names=FALSE)
+# write.csv(prob_ERM_MT_PA, "codigos_R/ERM/probabilidades/prob_ERM_1PL_MT_PA.csv", row.names=FALSE)
+# write.csv(prob_ERM_CH_PA, "codigos_R/ERM/probabilidades/prob_ERM_1PL_CH_PA.csv", row.names=FALSE)
+# write.csv(prob_ERM_CN_PA, "codigos_R/ERM/probabilidades/prob_ERM_1PL_CN_PA.csv", row.names=FALSE)
+```
+
+```{r}
+head(prob_ERM_MT_PR[, c(1, 12)], 10)
+tail(prob_ERM_MT_PR[, c(1, 12)], 10)
+```
+
+```{r}
+
+write.csv(prob_ERM_MT_PR[, c(1, 12)], "codigos_R/ERM/probabilidades/prob_ERM_ITEM11_MT.csv", row.names=FALSE)
+
+```
+
+#Ordenar dataframes
+```{r}
+ordenar_questoes <- function(df) {
+  # Ordenar dataframe pelo valor da coluna dificuldade
+  
+  # Selecionar as 3 questoes mais faceis, mais dificies e as que estão na média
+  vetor_facil <- df[order(df$dificuldade_item),][1:3,]$questao
+  vetor_dificil <- df[order(df$dificuldade_item, decreasing = TRUE),][1:3,]$questao
+  
+  # Encontrar a média 
+  mediana <- median(df$dificuldade_item)
+  vetor_medias <- df[order(abs(df$dificuldade_item - mediana)),][1:3,]$questao
+  # Retornar um vetor com as 3 listas de itens selecionadas
+  return(c(vetor_facil,vetor_medias,vetor_dificil))
+}
+```
+``
+## Função: gerar gráfico da Probabilidade de acerto do item facil , médio e dificil
+```{r Funcão para gerar scatter facil medio e dificil}
+# gera_Scatter_pers <- function(df, vetor_itens,titulo){
+#   Scatter <- plot_ly(x = df$theta, #pegar a coluna theta
+#                      y =df[,vetor_itens[1]], #Iniciar pela 2º coluna devido a 1º conter os valores de Theta
+#                      name = names(df)[vetor_itens[1]], #Iniciar pelo primeiro valor ITEM 1
+#                      type = "scatter",
+#                      mode = "lines",
+#                      #showlegend = FALSE
+#                      ) %>%
+#           layout(title = titulo, xaxis = list(title = 'Habilidade θ',
+#                         zeroline = F
+#                        ),
+#            yaxis = list(title = 'Probabilidade de acerto P(θ)',
+#                         zeroline = F
+#                         ))
+
+#   return(Scatter)
+# }
+```
+
+```{r}
+# gera_Scatter_comp <- function(df, vetor_itens, valor1, valor2,examinando_A = "",examinando_B="",titulo = "") {
+#   Scatter <- plot_ly(x = df$theta,
+#                      y = df[, vetor_itens[1]],
+#                      name = names(df)[vetor_itens[1]+1],
+#                      type = "scatter",
+#                      mode = "lines"
+#   ) %>% 
+    
+#     layout(title = titulo,
+#       xaxis = list(title = 'Habilidade θ',
+#                         zeroline = FALSE
+#     ),
+#     yaxis = list(title = 'Probabilidade P(θ)',
+#                  zeroline = FALSE
+#     ))
+
+#   for(i in 2:length(vetor_itens)) {
+#     Scatter <- Scatter %>% add_trace(x = df$theta,
+#                                      y = df[, vetor_itens[i] + 1],
+#                                      name = names(df)[vetor_itens[i] + 1]
+#     )
+#   }
+ 
+#   # Adicionar anotações para os valores destacados
+#   Scatter <- Scatter %>% add_annotations(
+#     x = valor2$theta,
+#     y = valor2$probabilidade,
+#     text = paste(examinando_A,"<br>Habilidade θ:", round(valor2$theta, 2),
+#                  "<br>Probabilidade P(θ):", round(valor2$probabilidade, 2)*100,"%"),
+#     xref = "x",
+#     yref = "y",
+#     showarrow = TRUE,
+#     arrowhead = 7,
+#     arrowwidth = 2,
+#     ax = valor2$theta - 70,
+#     ay = -100,
+#     arrowcolor="#636363",
+#     bordercolor="#c7c7c7",
+#     bgcolor="#BCBD22",
+#     font = list(color = "White",weight = "bold")
+#   )
+  
+#    Scatter <- Scatter %>% add_annotations(
+#     x = valor1$theta,
+#     y = valor1$probabilidade,
+#     text = paste(examinando_B,"<br>Habilidade θ:", round(valor1$theta, 2),
+#                  "<br>Probabilidade P(θ):", round(valor1$probabilidade, 2)*100,"%"),
+#     xref = "x",
+#     yref = "y",
+#     showarrow = TRUE,
+#     arrowhead = 7,
+#     arrowwidth = 2,
+#     ax = valor1$theta + 40,
+#     ay = 100,
+#     arrowcolor="#636363",
+#     bordercolor="#c7c7c7",
+#     bgcolor="#FF7F0E",
+#     font = list(color = "White",weight = "bold")
+#   )
+#   return(Scatter)
+# }
+
+```
+
+```{r}
+# vetor_itens <- seq(29)
+# vetor_itens[1]
+# title_mt_pa <- "CCI de Matemática e suas Tecnologias do estado do Pará"
+# title_mt_pr <- "CCI de Matemática e suas Tecnologias do estado do Paraná"
+# title_lc_pa <- "CCI de Linguagens e Códigos do estado do Pará"
+# title_lc_pr <- "CCI de Linguagens e Códigos do estado do Paraná"
+
+# scatter_plot_CCI <- gera_Scatter_pers(prob_ERM_MT_PR,c(39),"Curva Característica do Item")
+#scatter_plot_MT_PA <- gera_Scatter_pers(prob_ERM_MT_PA,c(12,27,39,21,17,19,9,29,11), title_mt_pa)
+#scatter_plot_MT_PR <- gera_Scatter_pers(prob_ERM_MT_PR,c(12,27,39,21,17,19,9,29,11), title_mt_pr)
+
+#scatter_plot_LC_PR <- gera_Scatter_pers(prob_ERM_LC_PR,c(32,16,9,42,17,22,43,10,18), title_lc_pa)
+#scatter_plot_LC_PA <- gera_Scatter_pers(prob_ERM_LC_PA,c(32,16,9,42,17,22,43,10,18), title_lc_pr)
+
+```
+
+```{r}
+# v1 <- data.frame(theta = 1.51, probabilidade = 0.50) #item dificil
+# v2 <- data.frame(theta = -1.47, probabilidade = 0.50) #item facil
+
+# v3 <- data.frame(theta = 1.21, probabilidade = 0.50) #item dificil
+# v4 <- data.frame(theta = -0.95, probabilidade = 0.50) #item facil
+
+# scatter_plot_MT_PR <- gera_Scatter_comp(prob_ERM_MT_PR,c(12,27,39,21,17,19,9,29,11),v1,v2,"item 11","item 27","CCI de Matemática e suas Tecnologias do estado do Paraná")
+# scatter_plot_MT_PA <- gera_Scatter_comp(prob_ERM_MT_PA,c(12,27,39,21,17,19,9,29,11),v3,v4,"item 11","item 27","CCI de Matemática e suas Tecnologias do estado do Pará")
+
+```
+
+```{r}
+# scatter_plot_MT_PR
+# scatter_plot_MT_PA
+# scatter_plot_CCI
+#scatter_plot_LC_PR
+#scatter_plot_LC_PA
+```
+```{r}
+# orca(scatter_plot_MT_PR,"codigos_R/ERM/graficos/grafico_ERM_MT_PR.pdf")
+# orca(scatter_plot_MT_PA,"codigos_R/ERM/graficos/grafico_ERM_MT_PA.pdf")
+#orca(scatter_plot_CCI,"codigos_R/ERM/graficos/grafico_CCI.pdf")
+#orca(scatter_plot_LC_PR,"codigos_R/ERM/graficos/grafico_ERM_LC_PR.pdf")
+#orca(scatter_plot_LC_PA,"codigos_R/ERM/graficos/grafico_ERM_LC_PA.pdf")
+
+
+#orca(scatter_plot_CN_PR,"codigos_R/ERM/graficos/grafico_ERM_CN_PR.pdf")
+#orca(scatter_plot_CH_PR,"codigos_R/ERM/graficos/grafico_ERM_CH_PR.pdf")
+#orca(scatter_plot_CN_PA,"codigos_R/ERM/graficos/grafico_ERM_CN_PA.pdf")
+#orca(scatter_plot_CH_PA,"codigos_R/ERM/graficos/grafico_ERM_CH_PA.pdf")
+
+```
