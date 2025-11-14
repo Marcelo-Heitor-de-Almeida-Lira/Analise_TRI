@@ -1,26 +1,26 @@
 Gere um Relatório de Qualidade da Questão usando os dados fornecidos.
 
 DADOS DA QUESTÃO
-Item: 21
-Area de Conhecimento: LC
-Dificuldade do Item: 589.36
+Item: 29
+Area de Conhecimento: MT
+Dificuldade do Item: 596.49
 Classificação do Item: Media
-Probabilidade de acerto ao acaso: 0.0
-Discriminação do Item: 0.31
-Quantidade total de respostas: 8816
-Alunos com habilidade acima da dificuldade do item: 57.43
-Acertos de alunos com habilidade acima da dificuldade do item: 56.23
-Erros de alunos com habilidade acima da dificuldade do item: 43.77
-Alunos com habilidade abaixo da dificuldade do item: 42.57
-Acertos de alunos com habilidade abaixo da dificuldade do item: 43.51
-Erros de alunos com habilidade abaixo da dificuldade do item: 56.49
-Gabarito da questão: E
-Marcações na letra A: 11.63
-Marcações na letra B: 15.34
-Marcações na letra C: 17.03
-Marcações na letra D: 5.01
-Marcações na letra E: 50.82
-Respostas nulas: 0.18
+Probabilidade de acerto ao acaso: 26.43
+Discriminação do Item: 1.51
+Quantidade total de respostas: 8912
+Alunos com habilidade acima da dificuldade do item: 52.64
+Acertos de alunos com habilidade acima da dificuldade do item: 82.35
+Erros de alunos com habilidade acima da dificuldade do item: 17.65
+Alunos com habilidade abaixo da dificuldade do item: 47.36
+Acertos de alunos com habilidade abaixo da dificuldade do item: 42.98
+Erros de alunos com habilidade abaixo da dificuldade do item: 57.02
+Gabarito da questão: B
+Marcações na letra A: 10.08
+Marcações na letra B: 63.7
+Marcações na letra C: 12.84
+Marcações na letra D: 9.38
+Marcações na letra E: 3.74
+Respostas nulas: 0.27
 
 
 Estrutura fixa do relatório:
@@ -49,11 +49,11 @@ MODELO DE RESPOSTA HTML
    <li>Gabarito: {Gabarito da questão}</li>
   </ul>
   <h2>Distribuição das respostas</h2>
-  <iframe src="../plots/dist_21_LC_PR.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <iframe src="../plots/dist_29_MT_PR.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
   <h2>Acertos por Nível de Habilidade</h2>
-  <iframe src="../plots/acertos_21_LC_PR.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
+  <iframe src="../plots/acertos_29_MT_PR.html" style="height:600px; width:900px; display:block; margin: 0 auto; border:none;"></iframe>
   <h2>Curva Característica do Item</h2>
-  <iframe src="../plots/cci_prof_21_LC_PR.html" style="height:900px; width:1200px; display:block; margin: 0 auto; border:none;"></iframe>
+  <iframe src="../plots/cci_prof_29_MT_PR.html" style="height:900px; width:1200px; display:block; margin: 0 auto; border:none;"></iframe>
   <h2>Interpretações dos Resultados</h2>
   <ul>
     <li>(Resumo geral do comportamento do item, coerência com a dificuldade e discriminação.)</li>
@@ -79,3 +79,8 @@ Regras para geração de relatório:
 * Sempre inclua os valores originais fornecidos.
 * Use linguagem clara e objetiva, adequada para professores.
 * Se detectar anomalias, explique de forma simples.
+* No valor Área de Conhecimento:
+    - Se {Área de Conhecimetento} == "LC" subistitua o valor {Área de Conhecimento} por "Linguagens, Códigos e suas Tecnologias" no HTML
+    - Se {Área de Conhecimetento} == "CH" subistitua o valor {Área de Conhecimento} por "Ciências Humanas e suas Tecnologias" no HTML
+    - Se {Área de Conhecimetento} == "CN" subistitua o valor {Área de Conhecimento} por "Ciências da Natureza e suas Tecnologias" no HTML
+    - Se {Área de Conhecimetento} == "MT" subistitua o valor {Área de Conhecimento} por "Matemática e suas Tecnologias" no HTML

@@ -3,6 +3,16 @@ import numpy as np
 
 def gera_prompt(area, estado, item, bar_file, pie_file, cci_file):
     area_conhecimento = area
+
+    if area == "CN":
+        area_conhecimento = "Ciências da Natureza e suas Tecnologias"
+    elif area == "CH":
+        area_conhecimento = "Ciências Humanas e suas Tecnologias"
+    elif area == "MT":
+        area_conhecimento = "Matemática e suas Tecnologias"
+    elif area == "LC":
+        area_conhecimento = "Linguagens, Códigos e suas Tecnologias"
+    
     estado = estado
     item = item
 

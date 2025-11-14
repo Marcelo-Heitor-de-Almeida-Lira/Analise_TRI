@@ -10,8 +10,8 @@ from ollama import ChatResponse
 
 
 prompt_file = "prompt_prof.txt"
-report_output_file_html = "report_examples/report_prof_3.html"
-report_raw_output = "report_examples/report_raw_prof_3.txt"
+report_output_file_html = "report_examples/report_prof_5.html"
+report_raw_output = "report_examples/report_raw_prof_5.txt"
 
 def create_bar_chart(distribuicao_marcacoes):
   # Dados fornecidos
@@ -45,10 +45,10 @@ def grafico_acertos_alunos(estatistica_acertos):
     # Estrutura dos dados
     data = {
         "Categoria": [
-            "Acertos (acima da dificuldade)",
-            "Erros (acima da dificuldade)",
-            "Acertos (abaixo da dificuldade)",
-            "Erros (abaixo da dificuldade)"
+            "Acertos",
+            "Erros",
+            "Acertos",
+            "Erros"
         ],
         "Grupo": [
             "Acima da dificuldade",
@@ -62,10 +62,8 @@ def grafico_acertos_alunos(estatistica_acertos):
     df = pd.DataFrame(data)
 
     colors = {
-        "Acertos (acima da dificuldade)": "#2ecc71",
-        "Erros (acima da dificuldade)": "#e74c3c",
-        "Acertos (abaixo da dificuldade)": "#2ecc71",
-        "Erros (abaixo da dificuldade)": "#e74c3c"
+        "Acertos": "#2ecc71",
+        "Erros": "#e74c3c"
     }
 
 
@@ -136,8 +134,8 @@ def gera_relatorio_deepseek():
         f.write(report_html)
 
 
-ITEM = 21
-AREA_CONHECIMENTO = "LC"
+ITEM = 29
+AREA_CONHECIMENTO = "MT"
 ESTADO = "PR"
 BAR_CHART_FILE = f"plots/dist_{ITEM}_{AREA_CONHECIMENTO}_{ESTADO}.html"
 PIE_PLOT_FILE = f"plots/acertos_{ITEM}_{AREA_CONHECIMENTO}_{ESTADO}.html"
