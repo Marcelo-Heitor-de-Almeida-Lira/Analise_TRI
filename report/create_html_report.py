@@ -68,7 +68,8 @@ def get_habilidade_aluno(matricula, estado, area_conhecimento, questao):
   acertou_questao = examinando[f"Q{questao}"].values[0]
 
   df_normalizado = pd.read_csv(f"normalized_data/habilidades/habil_{area_conhecimento}_{estado}.csv")
-  df_normalizado = df_normalizado[df_normalizado["alunos_id_string" == matricula]]
+  df_normalizado["alunos_id_string"] = df_normalizado["alunos_id_string"].astype(str)
+  df_normalizado = df_normalizado[df_normalizado["alunos_id_string"] == matricula]
 
   habilidade_normalizada = df_normalizado["habilidade_normalizada"].values[0]
 
@@ -84,9 +85,9 @@ def get_dificuldade_item(estado, area_conhecimento, item):
   df_dificuldade = df_dificuldade[df_dificuldade["questao"] == item]
   
   chute = df_dificuldade["acerto_acaso_item"].values[0]
-  dificuldade = df_dificuldade["dificuldade_item_normalizada"].values[0]
+  dificuldade = df_dificuldade["dificuldade_item_normalizado"].values[0]
   discriminacao = df_dificuldade["discriminacao_item"].values[0]
-  classificacao_dificuldade = df_dificuldade["classificacao_dificuldade"]
+  classificacao_dificuldade = df_dificuldade["classificacao_dificuldade"].values[0]
 
   if dificuldade > 1000:
     dificuldade = 1000
@@ -162,7 +163,7 @@ def get_area_nome(area):
 
 def create_html_report(matricula, area_conhecimento, estado, questao, gabarito, item_hab_desc, item_comp_desc, item_prova, habil_examinando, acerto_acaso_item, dificuldade_item, class_dificuldade, prob_acerto, acertou_questao, feedback):
   TEMPLATE_FILE = "report_aluno_template_teste.txt"
-  OUTPUT_FILE = f"report_html_no_llm/report_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
+  OUTPUT_FILE = f"report_html_no_llm/exemplo_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
 
   if acertou_questao == 1:
     acertou_questao = "acertou"
@@ -235,7 +236,7 @@ def iterar_pasta():
       print(f"Report html criado para {matricula} na questão {questao}")
 
 
-def report(matricula, estado, area_conhecimento, questao):
+def generate_report(matricula, estado, area_conhecimento, questao):
   TEMPLATE_FILE = "report_aluno_template.txt"
   OUTPUT_FILE = f"report_html_no_llm/report_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
 
@@ -259,7 +260,8 @@ def report(matricula, estado, area_conhecimento, questao):
 
   create_html_report(matricula, area_conhecimento, estado, questao, gabarito, item_hab_desc_corrijido, item_comp_desc_corrijido, item_prova, habil_examinando, acerto_acaso_item, dificuldade_item, class_dificuldade, prob_acerto, acertou_questao, feedback)
 
-def main():
+
+def gerar_artefatos():
   # Multiplas instâncias de uma vez
   dados = [
     {"mat": "210055059725", "item": 5, "area": "CH", "estado": "PA"},
@@ -297,9 +299,19 @@ def main():
   ]
 
   for dado in dados:
-    report(dado["mat"], dado["estado"], dado["area"], dado["item"])
+    generate_report(dado["mat"], dado["estado"], dado["area"], dado["item"])
     print(f"Report gerado para {dado['mat']} do estado de {dado['estado']} na área {dado['area']}, item {dado['item']}")
     print("-------------------------------------------------------------------\n")
+
+def main():
+  aluno_id = str(input("Digite o id do aluno: "))
+  estado = str(input("Digite o estado (PA/PR): "))
+  area = str(input("Digite a área de conhecimento (MT/CN/CH/LC): "))
+  item = int(input("Digite o número da questão: "))
+
+  generate_report(aluno_id, estado, area, item)
+  print(f"Report gerado para {aluno_id} do estado de {estado} na área {area}, item {item}")
+  
 
 if __name__ == '__main__':
   main()

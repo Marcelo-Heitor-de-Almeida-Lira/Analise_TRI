@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+    h1 { text-align: center; }
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;
+    }
+    .texto {
+      width: 55%;
+    }
+    .grafico {
+      width: 45%;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+
+  <div class="container">
+
+    <div class="texto">
+      <h2><b>Matrícula do examinando: 210057236472</b></h2>
+      <ul>
+        <li>O examinando teve habilidade estimada em 896.75, de uma escala de 200 a 1.000</li>
+        <li>O examinando tinha uma probabilidade de acerto estimada em 91.33%</li>
+        <li>O aluno errou a questão</li>
+      </ul>
+
+      <h2><b>Item avaliado: 104</b></h2>
+      <ul>
+        <li>Área de Conhecimento: Ciências da Natureza e suas Tecnologias</li>
+        <li>Gabarito: A</li>
+        <li>Dificuldade Estimada do Item: 580.92 (200 - 1.000). É considerada uma questão Media</li>
+        <li>Probabilidade de chute: 0.04%</li>
+        <li>Competência exigida: Apropriar-se de conhecimentos da biologia para, em situações problema, interpretar, avaliar ou planejar intervenções científicotecnológicas.</li>
+        <li>Habilidade exigida: Associar características adaptativas dos organismos com seu modo de vida ou com seus limites de distribuição em diferentes ambientes, em especial em ambientes brasileiros.</li>
+      </ul>
+
+      <h2>Feedback</h2>
+      <p>Você errou uma questão que, em média, está abaixo do seu nível (habilidade = 896.75, dificuldade = 580.92). Talvez tenha sido um erro de atenção ou falta de revisão. Vale a pena revisar o tema (Associar características adaptativas dos organismos com seu modo de vida ou com seus limites de distribuição em diferentes ambientes, em especial em ambientes brasileiros.).</p>
+
+      <ul>
+        <li><a href="https://app.mecenem.mec.gov.br/">Visite o site de estudos do ENEM</a></li>
+      </ul>
+    </div>
+
+    <div class="grafico">
+      <h1>GRÁFICO CCI</h1>
+      <iframe src="../plots/cci_210057236472_PR_CN_14.html"></iframe>
+    </div>
+
+  </div>
+
+</body>
+</html>

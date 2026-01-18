@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+    h1 { text-align: center; }
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;
+    }
+    .texto {
+      width: 55%;
+    }
+    .grafico {
+      width: 45%;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+
+  <div class="container">
+
+    <div class="texto">
+      <h2><b>Matrícula do examinando: 210057159183</b></h2>
+      <ul>
+        <li>O examinando teve habilidade estimada em 826.72, de uma escala de 200 a 1.000</li>
+        <li>O examinando tinha uma probabilidade de acerto estimada em 99.96%</li>
+        <li>O aluno errou a questão</li>
+      </ul>
+
+      <h2><b>Item avaliado: 9</b></h2>
+      <ul>
+        <li>Área de Conhecimento: Linguagens, Códigos e suas Tecnologias</li>
+        <li>Gabarito: C</li>
+        <li>Dificuldade Estimada do Item: 555.46 (200 - 1.000). É considerada uma questão Media</li>
+        <li>Probabilidade de chute: 0.0%</li>
+        <li>Competência exigida: Compreender e usar a linguagem corporal como relevante para a própria vida, integradora social e formadora da identidade.</li>
+        <li>Habilidade exigida: Reconhecer as manifestações corporais de movimento como originárias de necessidades cotidianas de um grupo social.</li>
+      </ul>
+
+      <h2>Feedback</h2>
+      <p>Você errou uma questão que, em média, está abaixo do seu nível (habilidade = 826.72, dificuldade = 555.46). Talvez tenha sido um erro de atenção ou falta de revisão. Vale a pena revisar o tema (Reconhecer as manifestações corporais de movimento como originárias de necessidades cotidianas de um grupo social.).</p>
+
+      <ul>
+        <li><a href="https://app.mecenem.mec.gov.br/">Visite o site de estudos do ENEM</a></li>
+      </ul>
+    </div>
+
+    <div class="grafico">
+      <h1>GRÁFICO CCI</h1>
+      <iframe src="../plots/cci_210057159183_PA_LC_9.html"></iframe>
+    </div>
+
+  </div>
+
+</body>
+</html>

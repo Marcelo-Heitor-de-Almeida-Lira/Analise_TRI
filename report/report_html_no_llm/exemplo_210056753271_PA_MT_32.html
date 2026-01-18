@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Relatório de Análise TRI pós-prova do ENEM</title>
+  <style>
+    h1 { text-align: center; }
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;
+    }
+    .texto {
+      width: 55%;
+    }
+    .grafico {
+      width: 45%;
+    }
+    iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+  </style>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <h1><b>Relatório de Análise TRI pós-prova do ENEM</b></h1>
+
+  <div class="container">
+
+    <div class="texto">
+      <h2><b>Matrícula do examinando: 210056753271</b></h2>
+      <ul>
+        <li>O examinando teve habilidade estimada em 470.13, de uma escala de 200 a 1.000</li>
+        <li>O examinando tinha uma probabilidade de acerto estimada em 20.05%</li>
+        <li>O aluno acertou a questão</li>
+      </ul>
+
+      <h2><b>Item avaliado: 167</b></h2>
+      <ul>
+        <li>Área de Conhecimento: Matemática e suas Tecnologias</li>
+        <li>Gabarito: B</li>
+        <li>Dificuldade Estimada do Item: 915.66 (200 - 1.000). É considerada uma questão Muito dificil</li>
+        <li>Probabilidade de chute: 19.83%</li>
+        <li>Competência exigida: Construir noções de grandezas e medidas para a compreensão da realidade e a solução de problemas do cotidiano.</li>
+        <li>Habilidade exigida: Avaliar o resultado de uma medição na construção de um argumento consistente.</li>
+      </ul>
+
+      <h2>Feedback</h2>
+      <p>Você acertou uma questão acima do seu nível atual (habilidade = 470.13, dificuldade = 915.66). Isso pode indicar um bom raciocínio pontual ou sorte. Vale a pena revisar esse conteúdo (Avaliar o resultado de uma medição na construção de um argumento consistente.) para consolidar o conhecimento. A chance de ter acertado por sorte é significativa (probabilidade de acerto do aluno = 20.05%, probabilidade de acerto por chute da questão = 19.83%). Considere revisar esse tópico para garantir o entendimento.</p>
+
+      <ul>
+        <li><a href="https://app.mecenem.mec.gov.br/">Visite o site de estudos do ENEM</a></li>
+      </ul>
+    </div>
+
+    <div class="grafico">
+      <h1>GRÁFICO CCI</h1>
+      <iframe src="../plots/cci_210056753271_PA_MT_32.html"></iframe>
+    </div>
+
+  </div>
+
+</body>
+</html>
