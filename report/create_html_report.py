@@ -163,7 +163,7 @@ def get_area_nome(area):
 
 def create_html_report(matricula, area_conhecimento, estado, questao, gabarito, item_hab_desc, item_comp_desc, item_prova, habil_examinando, acerto_acaso_item, dificuldade_item, class_dificuldade, prob_acerto, acertou_questao, feedback):
   TEMPLATE_FILE = "report_aluno_template_teste.txt"
-  OUTPUT_FILE = f"report_examples/report_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
+  OUTPUT_FILE = f"report_examples/exemplo_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
 
   if acertou_questao == 1:
     acertou_questao = "acertou"
@@ -206,7 +206,7 @@ def create_html_report(matricula, area_conhecimento, estado, questao, gabarito, 
 # Transforma reports pdf em html - não mais necessário
 def iterar_pasta():
   padrao = re.compile(r"report_(\d+)_(\w{2})_(\w{2})_(\d+)\.pdf$")
-  PASTA = "report_html_no_llm"
+  PASTA = "report_examples"
 
   for name in os.listdir(PASTA):
     match = padrao.match(name)
@@ -237,10 +237,6 @@ def iterar_pasta():
 
 
 def generate_report(matricula, estado, area_conhecimento, questao):
-  TEMPLATE_FILE = "report_aluno_template.txt"
-  OUTPUT_FILE = f"report_html_no_llm/report_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
-
-
   gabarito, item_hab_desc, item_comp_desc, item_prova, habil_examinando, acerto_acaso_item, dificuldade_item, discriminacao_item, class_dificuldade, prob_acerto, acertou_questao = get_report_informations(matricula, questao, area_conhecimento, estado)
 
   # Deixa apenas o texto da descrição da String
@@ -336,10 +332,10 @@ def create_reports_all_students():
   return
 
 def main():
-  # create_single_report() # Cria um unico relatorio de escolha espontanea
+  create_single_report() # Cria um unico relatorio de escolha espontanea
   # gerar_artefatos() # Gera varios relatorios pre-determinados de uma vez
   # iterar_pasta() # Usado para transformar os relatorios pdf em relatorios html
-  create_reports_all_students()
+  # create_reports_all_students()
   
   
 
