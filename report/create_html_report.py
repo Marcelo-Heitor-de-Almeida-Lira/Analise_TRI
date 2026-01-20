@@ -163,7 +163,7 @@ def get_area_nome(area):
 
 def create_html_report(matricula, area_conhecimento, estado, questao, gabarito, item_hab_desc, item_comp_desc, item_prova, habil_examinando, acerto_acaso_item, dificuldade_item, class_dificuldade, prob_acerto, acertou_questao, feedback):
   TEMPLATE_FILE = "report_aluno_template_teste.txt"
-  OUTPUT_FILE = f"report_html_no_llm/exemplo_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
+  OUTPUT_FILE = f"report_examples/report_{matricula}_{estado}_{area_conhecimento}_{questao}.html"
 
   if acertou_questao == 1:
     acertou_questao = "acertou"
@@ -303,7 +303,8 @@ def gerar_artefatos():
     print(f"Report gerado para {dado['mat']} do estado de {dado['estado']} na área {dado['area']}, item {dado['item']}")
     print("-------------------------------------------------------------------\n")
 
-def main():
+
+def create_single_report():
   aluno_id = str(input("Digite o id do aluno: "))
   estado = str(input("Digite o estado (PA/PR): "))
   area = str(input("Digite a área de conhecimento (MT/CN/CH/LC): "))
@@ -311,6 +312,35 @@ def main():
 
   generate_report(aluno_id, estado, area, item)
   print(f"Report gerado para {aluno_id} do estado de {estado} na área {area}, item {item}")
+
+
+def create_reports_all_students():
+  area = str(input("Digite a área de conhecimento (MT/CN/LC/CH): "))
+  item = int(input("Digite o número da questão: "))
+
+  df_pa = pd.read_csv(f"normalized_data/habilidades/habil_{area}_PA.csv")
+  df_pr = pd.read_csv(f"normalized_data/habilidades/habil_{area}_PR.csv")
+
+  
+  for student_id in df_pa["alunos_id_string"]:
+    if len(student_id) == 12:
+      generate_report(student_id, "PA", area, item)
+  
+  print("Geracao de relatorios para PA concluida")
+
+  for student_id in df_pr["alunos_id_string"]:
+    if len(student_id) == 12:
+      generate_report(student_id, "PR", area, item)
+  
+  print("Geracao de relatorios para PR concluida")
+  return
+
+def main():
+  # create_single_report() # Cria um unico relatorio de escolha espontanea
+  # gerar_artefatos() # Gera varios relatorios pre-determinados de uma vez
+  # iterar_pasta() # Usado para transformar os relatorios pdf em relatorios html
+  create_reports_all_students()
+  
   
 
 if __name__ == '__main__':

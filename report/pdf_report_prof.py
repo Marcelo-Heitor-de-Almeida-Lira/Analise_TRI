@@ -125,7 +125,7 @@ def create_boxplot(area_conhecimento):
 def create_plots(areas_conhecimento, estados):
     for area_conhecimento in areas_conhecimento:
         for estado in estados:
-            cci_file = f'cci_{area_conhecimento}_{estado}_prof.html'
+            cci_file = f'plots/cci_{area_conhecimento}_{estado}_prof.png'
             create_histograms(estado, area_conhecimento)
             create_boxplot(area_conhecimento)
             df = pd.read_csv(f'../codigos_R/LTM_3PL/probabilidades/df_prob_3PL_LTM_{area_conhecimento}_{estado}.csv')
@@ -151,10 +151,7 @@ def create_plots(areas_conhecimento, estados):
 
             cci = gera_scatter(df, items, title, area_conhecimento)
 
-            cci_html = cci.to_html(include_plotlyjs="cdn", full_html=False)
-
-            with open(cci_file, "w", encoding="utf-8") as f:
-                f.write(cci_html)
+            cci.write_image(cci_file)
 
 
 
@@ -210,7 +207,7 @@ def get_info_table_dif(area_conhecimento, estado):
     return table
 
 def create_pdf_report(estado):
-  doc = SimpleDocTemplate(f"report_html_no_llm/prof_report_{estado}.pdf", pagesize=A4)
+  doc = SimpleDocTemplate(f"report_examples/prof_report_{estado}.pdf", pagesize=A4)
   styles = getSampleStyleSheet()
 
   title = styles["Heading1"]
@@ -231,7 +228,7 @@ def create_pdf_report(estado):
     conteudo.append(Paragraph(f"Relatório da Área {area_conhecimento}", header))
     conteudo.append(Spacer(1, 12))
 
-    img = Image(f"plots/prof_plot_{estado}_{area_conhecimento}.png", width=20*cm, height=14*cm)
+    img = Image(f"plots/cci_{area_conhecimento}_{estado}_prof.png", width=20*cm, height=14*cm)
     img.hAlign = 'CENTER'
 
     conteudo.append(img)
