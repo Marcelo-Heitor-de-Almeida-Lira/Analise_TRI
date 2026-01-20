@@ -7,17 +7,13 @@
 - chardet  
 - numpy  
 - matplotlib  
-- reportlab  
 - plotly 
-- Ollama 
+- reportlab
 
 ### 📊 R
 - dplyr  
 - eRm  
 - ltm
-
-## Modelo necessário
-- É necessário instalar o `deepseek-r1:14b` pelo `Ollama` para que a geração de relatórios com `Deepseek` funcione
 
 ---
 
@@ -30,7 +26,7 @@
 ---
 
 ### **pre-processamento/tratamento_geracao_matriz_binaria.ipynb**
-- **Função:** Ler itens das pastas `Itens_provas_amarela` e `Itens_provas_azul` e gerar matrizes binárias em `pre-processamento\matrizes_binarias`
+- **Função:** Ler itens do arquivo `pre-processamento/microdados_enem_2022/DADOS/MICRODADOS_ENEM_2022.csv` e gerar matrizes binárias em `pre-processamento\matrizes_binarias`
 - **Execução:** Notebook — executar após instalar `pandas`, `numpy` e `chardet`. Executar cada célula do ipynb
 
 ---
@@ -111,9 +107,9 @@ python normalize_data.py
 
 ---
 
-### **report/create_pdf_report.py**
-- **Função:** Carregar resultados gerados (examinando + questões) e gerar relatório final em formato pdf (sem uso de llms) para um aluno e uma questão, salvando-o em `report\report_pdf`
-- **Execução:** Rodar após instalar `pandas`, `numpy`, `plotly` e `reportlab`
+### **report/create_html_report.py**
+- **Função:** Carregar resultados gerados (examinando + questões) e gerar relatório final em formato html para um aluno e uma questão, salvando-o em `report\report_examples`
+- **Execução:** Rodar após instalar `pandas`, `numpy` e `plotly`
 ```bash
 cd report
 python create_report.py
@@ -122,34 +118,12 @@ python create_report.py
 ---
 
 ### **report/pdf_report_prof**
-- **Função:** Criar um relatório geral do estado para o professor em formato pdf (sem uso de llms) e o salva em `report\report_pdf`
+- **Função:** Criar um relatório geral do estado para o professor em formato pdf e o salva em `report\report_examples`
 - **Execução:** Rodar após instalar `pandas`, `numpy`, `plotly` e `reportlab`
 ```bash
 cd report
 python pdf_report_prof.py
 ```
-
----
-
-### **report/report_deepseek/gera_relatorio_aluno.py**
-- **Função:** Gerar relatório com o `Deepseek` via `Ollama` para o desempenho de um aluno em uma questão
-- **Execução:** Rodar após instalar `ollama`, `pandas`, `numpy` e `plotly`
-```bash
-cd report/report_deepseek
-python gera_relatorio_aluno.py
-```
-- **Alerta:** Devido ao uso do Deepseek localmente, esta execução pode demorar um pouco
-
----
-
-### **report/report_deepseek/gera_relatorio_prof.py**
-- **Função:** Gerar relatório com o `Deepseek` via `Ollama` para a qualidade de uma questão
-- **Execução:** Rodar após instalar `ollama`, `pandas`, `numpy` e `plotly`
-```bash
-cd report/report_deepseek
-python gera_relatorio_prof.py
-```
-- **Alerta:** Devido ao uso do Deepseek localmente, esta execução pode demorar um pouco
 
 ---
 
